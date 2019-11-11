@@ -1,3 +1,5 @@
+package br.com.ufrn.imd.telegrambot.util;
+
 import java.util.*;
 
 public class BancoDados {

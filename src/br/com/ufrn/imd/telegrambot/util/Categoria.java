@@ -1,3 +1,5 @@
+package br.com.ufrn.imd.telegrambot.util;
+
 public class Categoria {
     //2 - cadastrar categoria de bem (ex.: móvel, eletrônico, material de limpeza, etc.)
     //a. Realiza o cadastro da categoria de um bem. Os dados deverão ser salvos em alguma memória não volátil,

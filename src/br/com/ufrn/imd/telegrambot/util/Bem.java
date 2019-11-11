@@ -1,3 +1,5 @@
+package br.com.ufrn.imd.telegrambot.util;
+
 public class Bem {
     //3 - cadastrar bem (cadeira, mesa, computador, sabão em pó, etc.)
     //a. Realiza o cadastro de um bem. Os dados deverão ser salvos em alguma memória não volátil,
