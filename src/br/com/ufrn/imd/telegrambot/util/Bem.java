@@ -5,19 +5,48 @@ public class Bem {
     //a. Realiza o cadastro de um bem. Os dados deverão ser salvos em alguma memória não volátil,
     // por exemplo, um arquivo. Um  bem deverá conter no mínimo os atributos codig, nome, descricao, localização e categoria
 
-    int codigo;
-    String nome, descricao;
-    Localizacao localizacao;
-    Categoria categoria;
+    private int codigo;
+    private String nome, descricao;
+    private Localizacao localizacao;
+    private Categoria categoria;
 
-    public Bem(int codigo, String nome, String descricao, Localizacao localizacao, Categoria categoria) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.localizacao = localizacao;
-        this.categoria = categoria;
-        // TODO - adicionar a lista apos a criação (evento?)
-        // TODO - tratar caso o codigo seja o mesmo
+    public Bem() {
+        this.codigo = 0;
+        this.nome = null;
+        this.descricao = null;
+        this.localizacao = new Localizacao();
+        this.categoria = new Categoria();
     }
 
+    public int getCodigo() {
+        return codigo;
+    }
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getDescricao() {
+        return descricao;
+    }
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    public Localizacao getLocalizacao() {
+        return localizacao;
+    }
+    //TODO - DESFAZER GAMBIARRA EM SET LOCALIZAÇÃO E SET CATEGORIA PARA FICAR COMPATIVEL COM CONTROLADOR CADASTRO BEM
+    public void setLocalizacao(String localizacao) {
+        this.localizacao.setNome(localizacao);
+    }
+    public Categoria getCategoria() {
+        return categoria;
+    }
+    public void setCategoria(String categoria) {
+        this.categoria.setNome(categoria);
+    }
 }

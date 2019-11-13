@@ -6,8 +6,8 @@ public class Localizacao {
     // a. Realiza o cadastro de uma localização. Os dados deverão ser salvos em alguma memória não volátil,
     // por exemplo, um arquivo. Uma localização deverá conter no mínimo os atributos nome e descrição.
 
-    String nome;
-    String descricao;
+    private String nome;
+    private String descricao;
 
     public Localizacao() {
         this.nome = null;

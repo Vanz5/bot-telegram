@@ -42,7 +42,7 @@ public class ControladorCadastroLocalizacao extends Controlador {
                 break;
             case 6:
                 if(mensagemRecebida.toLowerCase().equals("s")){
-                    //Armazenando em aqrquivo
+                    //Armazenando em arquivo
                     BufferedWriter file = new BufferedWriter(new FileWriter("localizacao.txt",true));
                     file.write(localizacao.getNome() + "\n" + localizacao.getDescricao() + "\n------");
                     file.newLine();
@@ -61,13 +61,14 @@ public class ControladorCadastroLocalizacao extends Controlador {
                 break;
             default:
                 mensagem.add("Passo desconhecido");
+                break;
         }
         return mensagem;
     }
 
     @Override
     protected String finalizarOperacao() {
-        String mensagem = "Confirme se os dados abaixo estão certos: \nNome: " + localizacao.getNome() + "\nDescrição: " + localizacao.getDescricao() +"\n\n Posso salvar esses dados? (s/n)";
+        String mensagem = "Confirme se os dados abaixo estão certos: \nNome: " + localizacao.getNome() + "\nDescrição: " + localizacao.getDescricao() +"\n\nPosso salvar esses dados? (s/n)";
         return mensagem;
     }
 

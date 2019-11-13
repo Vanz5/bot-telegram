@@ -1,6 +1,8 @@
 package br.com.ufrn.imd.telegrambot.util;
 
 import br.com.ufrn.imd.telegrambot.controladores.Controlador;
+import br.com.ufrn.imd.telegrambot.controladores.ControladorCadastroBem;
+import br.com.ufrn.imd.telegrambot.controladores.ControladorCadastroCategoria;
 import br.com.ufrn.imd.telegrambot.controladores.ControladorCadastroLocalizacao;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.*;
@@ -33,7 +35,8 @@ public class Main {
         List<Controlador> operacoes = new ArrayList<Controlador>();
         //TODO -  Adicionar todos controladores criados no array
         operacoes.add(new ControladorCadastroLocalizacao());
-
+        operacoes.add(new ControladorCadastroCategoria());
+        operacoes.add(new ControladorCadastroBem());
 
         //loop infinito pode ser alterado por algum timer de intervalo curto
         while (true){
@@ -51,15 +54,9 @@ public class Main {
                 //verificação de ação de chat foi enviada com sucesso
                 System.out.println("Resposta de Chat Action Enviada?" + baseResponse.isOk());
 
+
+
                 //Tratamento de mensagens do chat
-                //TODO - Integrar com o controlador criado
-
-                if(update.message().text().equals("/ajuda")) {
-                    mensagens.add("Os comandos disponíveis são:\n /addlocalizacao - Cadastrar localização.\n /addcategoria - Cadastrar categoria.\n");
-                    //TODO - adicionar comandos em ajuda
-                }
-                //TODO - corrigir isso
-
                 if(operacaoAtual == null){
                     for(Controlador controlador: operacoes){
                         if(controlador.getOperacao().equals(update.message().text())){
@@ -70,6 +67,10 @@ public class Main {
 
                     if(operacaoAtual != null){
                         mensagens = operacaoAtual.chat(update.message().text());
+                    }
+                    else if(update.message().text().equals("/ajuda")) {
+                        mensagens.add("Os comandos disponíveis são:\n /addlocalizacao - Cadastrar localização.\n /addcategoria - Cadastrar categoria.\n");
+                        //TODO - adicionar comandos em ajuda
                     }
                     else{
                         mensagens.add("Não consigo realizar essa operação.\n\nPara conferir as operações disponíveis, utilize o comando /ajuda.");
@@ -82,6 +83,7 @@ public class Main {
                         operacaoAtual = null;
                     }
                     else{
+                        //TODO - adicionar no if um condicional pra quando isso -> '(update.message().text().equals("/ajuda")' não for verdade
                         if(update.message().text().charAt(0) == '/'){
                             mensagens.add("Para escolher outra operação é necessario que a operação atual seja cancelada através do comando /cancelar");
                         }
