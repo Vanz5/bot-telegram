@@ -1,39 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="391259c3-1c94-4b78-af55-df8c71d4d8a2" name="Default Changelist" comment="" />
+    <list default="true" id="305910fd-b963-4290-8008-a2ad210443eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BotPatrimonioTelegram.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BotPatrimonioTelegram.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Main.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1T8fJ04sgXXe7sQk4IeJ8hygHpx" />
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
-    <property name="settings.editor.selected.configurable" value="preferences.language.Kotlin" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\van-a\Documents\GitHub\BotPatrimonioTelegram\lib" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\van-a\Documents\GitHub\BotPatrimonioTelegram\lib" />
-    </key>
-  </component>
+  <component name="ProjectId" id="1TXIH5UugrK2Zv5f44TuwLqA0Hx" />
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -46,16 +33,36 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.com.ufrn.imd.telegrambot.util.Main" />
+      <module name="BotPatrimonioTelegram" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.ufrn.imd.telegrambot.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="391259c3-1c94-4b78-af55-df8c71d4d8a2" name="Default Changelist" comment="" />
-      <created>1572846567199</created>
+      <changelist id="305910fd-b963-4290-8008-a2ad210443eb" name="Default Changelist" comment="" />
+      <created>1573599922801</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1572846567199</updated>
+      <updated>1573599922801</updated>
     </task>
     <servers />
   </component>
@@ -64,9 +71,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>

@@ -51,9 +51,15 @@ public class Main {
                 //verificação de ação de chat foi enviada com sucesso
                 System.out.println("Resposta de Chat Action Enviada?" + baseResponse.isOk());
 
-
                 //Tratamento de mensagens do chat
                 //TODO - Integrar com o controlador criado
+
+                if(update.message().text().equals("/ajuda")) {
+                    mensagens.add("Os comandos disponíveis são:\n /addlocalizacao - Cadastrar localização.\n /addcategoria - Cadastrar categoria.\n");
+                    //TODO - adicionar comandos em ajuda
+                }
+                //TODO - corrigir isso
+
                 if(operacaoAtual == null){
                     for(Controlador controlador: operacoes){
                         if(controlador.getOperacao().equals(update.message().text())){
@@ -66,7 +72,7 @@ public class Main {
                         mensagens = operacaoAtual.chat(update.message().text());
                     }
                     else{
-                        mensagens.add("Não consigo realizar essa operação");
+                        mensagens.add("Não consigo realizar essa operação.\n\nPara conferir as operações disponíveis, utilize o comando /ajuda.");
                     }
                 }
                 else{
@@ -92,7 +98,7 @@ public class Main {
 
                 for(String mensagem: mensagens){
                     //envio da mensagem de resposta
-                    sendResponse = bot.execute(new SendMessage(update.message().chat().id(),"Comando inválido! Tente novamente"));
+                    sendResponse = bot.execute(new SendMessage(update.message().chat().id(), mensagem));
                 }
                 //verificação de mensagem enviada com sucesso
                 System.out.println("Mensagem Enviada?" + sendResponse.isOk());
