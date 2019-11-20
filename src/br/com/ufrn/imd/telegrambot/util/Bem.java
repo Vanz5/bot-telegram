@@ -39,14 +39,13 @@ public class Bem {
     public Localizacao getLocalizacao() {
         return localizacao;
     }
-    //TODO - DESFAZER GAMBIARRA EM SET LOCALIZAÇÃO E SET CATEGORIA PARA FICAR COMPATIVEL COM CONTROLADOR CADASTRO BEM
-    public void setLocalizacao(String localizacao) {
-        this.localizacao.setNome(localizacao);
+    public void setLocalizacao(Localizacao localizacao) {
+        this.localizacao = localizacao;
     }
     public Categoria getCategoria() {
         return categoria;
     }
-    public void setCategoria(String categoria) {
-        this.categoria.setNome(categoria);
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

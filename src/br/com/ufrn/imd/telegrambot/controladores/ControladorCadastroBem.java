@@ -1,6 +1,8 @@
 package br.com.ufrn.imd.telegrambot.controladores;
 
 import br.com.ufrn.imd.telegrambot.util.Bem;
+import br.com.ufrn.imd.telegrambot.util.Categoria;
+import br.com.ufrn.imd.telegrambot.util.Localizacao;
 
 import java.io.*;
 import java.util.*;
@@ -8,9 +10,10 @@ import java.util.*;
 public class ControladorCadastroBem extends Controlador {
 
     Bem bem;
+    FuncoesAuxiliares aux = new FuncoesAuxiliares();
 
     public ControladorCadastroBem() {
-        super("/addbem", 10);
+        super("/addbem", 12);
         bem = new Bem();
     }
 
@@ -19,49 +22,73 @@ public class ControladorCadastroBem extends Controlador {
         List<String> mensagem = new ArrayList<String>();
         switch (getPassoAtual()){
             case 1:
-                mensagem.add("Qual é o nome do bem que vai ser cadastrado?");
+                mensagem.add("Qual é o código do bem que vai ser cadastrado?");
                 setPassoAtual(getPassoAtual() + 1);
                 break;
             case 2:
-                bem.setNome(mensagemRecebida);
+                //TODO - Tratamento para conferir se o código está livre para uso
+                bem.setCodigo(Integer.parseInt(mensagemRecebida));
                 setPassoAtual(getPassoAtual() + 1);
                 break;
             case 3:
-                mensagem.add("Escreva uma pequena descrição desse bem.");
+                mensagem.add("Qual é o nome do bem que vai ser cadastrado?");
                 setPassoAtual(getPassoAtual() + 1);
                 break;
             case 4:
-                bem.setDescricao(mensagemRecebida);
+                bem.setNome(mensagemRecebida);
                 setPassoAtual(getPassoAtual() + 1);
                 break;
             case 5:
-                mensagem.add("Qual é a localização desse bem?");
+                mensagem.add("Escreva uma pequena descrição desse bem.");
                 setPassoAtual(getPassoAtual() + 1);
                 break;
             case 6:
-                //TODO - fazer tratamento para receber o nome da categoria e localização
-                //TODO - Tratamento fazendo teste se a categoria e localização existe
-                bem.setLocalizacao(mensagemRecebida);
+                bem.setDescricao(mensagemRecebida);
                 setPassoAtual(getPassoAtual() + 1);
                 break;
             case 7:
-                mensagem.add("Qual é a categoria desse bem?");
+                //TODO - listar opções na hora de inserir categorias e localizações?
+                mensagem.add("Qual é a localização desse bem?");
                 setPassoAtual(getPassoAtual() + 1);
                 break;
             case 8:
-                bem.setCategoria(mensagemRecebida);
-                setPassoAtual(getPassoAtual() + 1);
+                List<Localizacao> localizacoes = aux.listaLocalizacoes();
+                Localizacao localizacao = aux.buscaLocalizacao(localizacoes,mensagemRecebida);
+                if (localizacao == null){
+                    mensagem.add("A localização informada não foi encontrada no sistema, para cadastrar uma localização " +
+                            "primeiro insira '/cancelar' para sair desta operação e '/addlocalizacao' para iniciar o " +
+                            "cadastro da localização.");
+                }
+                else {
+                    bem.setLocalizacao(localizacao);
+                    setPassoAtual(getPassoAtual() + 1);
+                    //mensagem = chat(mensagemRecebida); //TODO - descobrir o que essa linha faz
+                }
                 break;
             case 9:
-                mensagem.add(finalizarOperacao());
+                mensagem.add("Qual é a categoria desse bem?");
                 setPassoAtual(getPassoAtual() + 1);
                 break;
             case 10:
+                List<Categoria> categorias = aux.listaCategorias();
+                Categoria categoria = aux.buscaCategoria(categorias,mensagemRecebida);
+                if(categoria == null){
+                    mensagem.add("A categoria informada não foi encontrada no sistema, para cadastrar uma nova categoria" +
+                            " primeiro insira '/cancelar' para sair desta operação e '/addcategoria' para iniciar o cadastro" +
+                            " da categoria.");
+                }
+                else{
+                    bem.setCategoria(categoria);
+                    setPassoAtual(getPassoAtual() + 1);
+                    //mensagem = chat(mensagemRecebida);
+                }
+                break;
+            case 11:
+                mensagem.add(finalizarOperacao());
+                setPassoAtual(getPassoAtual() + 1);
+                break;
+            case 12:
                 if(mensagemRecebida.toLowerCase().equals("s")){
-                    //Gerando codigo para categoria
-                    // TODO - definir como o codigo deve ser gerado por função
-                    bem.setCodigo(gerarCodigo());
-
                     //Armazenando em arquivo
                     BufferedWriter file = new BufferedWriter(new FileWriter("bem.txt",true));
                     file.write(bem.getCodigo() + "\n" + bem.getNome() + "\n" + bem.getDescricao() + "\n" + bem.getLocalizacao().getNome() + "\n" + bem.getCategoria().getNome() + "\n------");
@@ -97,15 +124,5 @@ public class ControladorCadastroBem extends Controlador {
     public void reset() {
         bem = new Bem();
         setPassoAtual(1);
-    }
-
-    //Verifica quantidade de linhas no arquivo para determinar o código
-    //TODO - tratar erro ao tentar gerar arquivo pela primeira vez? - caso não consiga forçar primeira categoria com cod = 0
-    //TODO - revisitar codigo parar gerar um numero não utilizado - tratar erros quando puder apagar categorias
-    private int gerarCodigo() throws IOException {
-        File arquivoCodigo = new File("bem.txt");
-        LineNumberReader linha = new LineNumberReader((new FileReader(arquivoCodigo)));
-        linha.skip(arquivoCodigo.length());
-        return linha.getLineNumber()/6;
     }
 }

@@ -1,9 +1,6 @@
 package br.com.ufrn.imd.telegrambot.util;
 
-import br.com.ufrn.imd.telegrambot.controladores.Controlador;
-import br.com.ufrn.imd.telegrambot.controladores.ControladorCadastroBem;
-import br.com.ufrn.imd.telegrambot.controladores.ControladorCadastroCategoria;
-import br.com.ufrn.imd.telegrambot.controladores.ControladorCadastroLocalizacao;
+import br.com.ufrn.imd.telegrambot.controladores.*;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.*;
 import com.pengrad.telegrambot.model.request.ChatAction;
@@ -37,6 +34,9 @@ public class Main {
         operacoes.add(new ControladorCadastroLocalizacao());
         operacoes.add(new ControladorCadastroCategoria());
         operacoes.add(new ControladorCadastroBem());
+        operacoes.add(new ControladorListarLocalizacao());
+        operacoes.add(new ControladorListarCategoria());
+        //operacoes.add(new ControladorListarBem());
 
         //loop infinito pode ser alterado por algum timer de intervalo curto
         while (true){
@@ -69,7 +69,9 @@ public class Main {
                         mensagens = operacaoAtual.chat(update.message().text());
                     }
                     else if(update.message().text().equals("/ajuda")) {
-                        mensagens.add("Os comandos disponíveis são:\n /addlocalizacao - Cadastrar localização.\n /addcategoria - Cadastrar categoria.\n");
+                        mensagens.add("Os comandos disponíveis são:\n /addlocalizacao - Cadastrar localização.\n /addcategoria - Cadastrar categoria." +
+                                "\n /addbem - Cadastrar bem.\n /listarlocalizacao - Listar localizações cadastradas. " +
+                                "\n /listarcategoria - Listar categorias cadastradas.\n /listarbem - Listar bens cadastrados em uma localização.");
                         //TODO - adicionar comandos em ajuda
                     }
                     else{

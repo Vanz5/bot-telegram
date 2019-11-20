@@ -6,3 +6,8 @@ Equipamento computacional essencial em um laboratório de informatica
 móvel
 Item de uso compartilhado dentro do ambiente
 ------
+2
+Material Didático
+Itens de auxilio para uso em aula
+------
+
