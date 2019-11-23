@@ -5,23 +5,23 @@ public class Bem {
     //a. Realiza o cadastro de um bem. Os dados deverão ser salvos em alguma memória não volátil,
     // por exemplo, um arquivo. Um  bem deverá conter no mínimo os atributos codig, nome, descricao, localização e categoria
 
-    private int codigo;
+    private String codigo;
     private String nome, descricao;
     private Localizacao localizacao;
     private Categoria categoria;
 
     public Bem() {
-        this.codigo = 0;
+        this.codigo = null;
         this.nome = null;
         this.descricao = null;
         this.localizacao = new Localizacao();
         this.categoria = new Categoria();
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
     public String getNome() {

@@ -43,7 +43,7 @@ public class FuncoesAuxiliares {
                 buffer.readLine();
             }
             else if(numLinha % 4 == 1){
-                atual.setCodigo(Integer.parseInt(buffer.readLine()));
+                atual.setCodigo(buffer.readLine());
             }
             else if(numLinha % 4 == 2){
                 atual.setNome(buffer.readLine());
@@ -71,7 +71,7 @@ public class FuncoesAuxiliares {
                 buffer.readLine();
             }
             else if(numLinha % 6 == 1){
-                atual.setCodigo(Integer.parseInt(buffer.readLine()));
+                atual.setCodigo(buffer.readLine());
             }
             else if(numLinha % 6 == 2){
                 atual.setNome(buffer.readLine());

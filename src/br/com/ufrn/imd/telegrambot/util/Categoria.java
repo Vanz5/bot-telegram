@@ -5,19 +5,19 @@ public class Categoria {
     //a. Realiza o cadastro da categoria de um bem. Os dados deverão ser salvos em alguma memória não volátil,
     // por exemplo, um arquivo. Uma categoria deverá conter no mínimo os atributos codigo, nome e descricao
 
-    private int codigo;
+    private String codigo;
     private String nome, descricao;
 
     public Categoria() {
-        this.codigo = 0;
+        this.codigo = null;
         this.nome = null;
         this.descricao = null;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
     public String getNome() {

@@ -12,10 +12,10 @@ public class ControladorListarLocalizacao extends Controlador {
     @Override
     public List<String> chat(String mensagemRecebida) throws IOException {
         List<String> mensagem = new ArrayList<String>();
-        switch (getPassoAtual()){
+        switch (getPasso()){
             case 1:
                 mensagem.add(imprimir("localizacao.txt"));
-                setPassoAtual(getPassoAtual() + 1);
+                setPasso(getPasso() + 1);
                 break;
             default:
                 mensagem.add("Passo desconhecido");
@@ -31,7 +31,7 @@ public class ControladorListarLocalizacao extends Controlador {
 
     @Override
     public void reset() {
-        setPassoAtual(1);
+        setPasso(1);
     }
 
     public String imprimir(String arquivo) throws IOException {

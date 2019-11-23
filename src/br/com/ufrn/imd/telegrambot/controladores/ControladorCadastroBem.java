@@ -20,36 +20,37 @@ public class ControladorCadastroBem extends Controlador {
     @Override
     public List<String> chat(String mensagemRecebida) throws IOException {
         List<String> mensagem = new ArrayList<String>();
-        switch (getPassoAtual()){
+        switch (getPasso()){
             case 1:
                 mensagem.add("Qual é o código do bem que vai ser cadastrado?");
-                setPassoAtual(getPassoAtual() + 1);
+                setPasso(getPasso() + 1);
                 break;
             case 2:
                 //TODO - Tratamento para conferir se o código está livre para uso
-                bem.setCodigo(Integer.parseInt(mensagemRecebida));
-                setPassoAtual(getPassoAtual() + 1);
+                bem.setCodigo(mensagemRecebida);
+                setPasso(getPasso() + 1);
                 break;
             case 3:
                 mensagem.add("Qual é o nome do bem que vai ser cadastrado?");
-                setPassoAtual(getPassoAtual() + 1);
+                setPasso(getPasso() + 1);
                 break;
             case 4:
                 bem.setNome(mensagemRecebida);
-                setPassoAtual(getPassoAtual() + 1);
+                setPasso(getPasso() + 1);
                 break;
             case 5:
                 mensagem.add("Escreva uma pequena descrição desse bem.");
-                setPassoAtual(getPassoAtual() + 1);
+                setPasso(getPasso() + 1);
                 break;
             case 6:
                 bem.setDescricao(mensagemRecebida);
-                setPassoAtual(getPassoAtual() + 1);
+                setPasso(getPasso() + 1);
                 break;
             case 7:
-                //TODO - listar opções na hora de inserir categorias e localizações?
-                mensagem.add("Qual é a localização desse bem?");
-                setPassoAtual(getPassoAtual() + 1);
+                //TODO - listar opções na hora de inserir categorias e localizações
+                mensagem.add("Qual é a localização desse bem?\n Abaixo estão todas categorias cadastradas");
+                //mensagem.add(adicionar uma lista só com o nome das localizaçõoes numa lista);
+                setPasso(getPasso() + 1);
                 break;
             case 8:
                 List<Localizacao> localizacoes = aux.listaLocalizacoes();
@@ -61,13 +62,14 @@ public class ControladorCadastroBem extends Controlador {
                 }
                 else {
                     bem.setLocalizacao(localizacao);
-                    setPassoAtual(getPassoAtual() + 1);
+                    setPasso(getPasso() + 1);
                     //mensagem = chat(mensagemRecebida); //TODO - descobrir o que essa linha faz
                 }
                 break;
             case 9:
                 mensagem.add("Qual é a categoria desse bem?");
-                setPassoAtual(getPassoAtual() + 1);
+                //mensagem.add(adicionar uma lista só com o nome das categorias numa lista);
+                setPasso(getPasso() + 1);
                 break;
             case 10:
                 List<Categoria> categorias = aux.listaCategorias();
@@ -79,13 +81,13 @@ public class ControladorCadastroBem extends Controlador {
                 }
                 else{
                     bem.setCategoria(categoria);
-                    setPassoAtual(getPassoAtual() + 1);
+                    setPasso(getPasso() + 1);
                     //mensagem = chat(mensagemRecebida);
                 }
                 break;
             case 11:
                 mensagem.add(finalizarOperacao());
-                setPassoAtual(getPassoAtual() + 1);
+                setPasso(getPasso() + 1);
                 break;
             case 12:
                 if(mensagemRecebida.toLowerCase().equals("s")){
@@ -95,13 +97,12 @@ public class ControladorCadastroBem extends Controlador {
                     file.newLine();
                     file.close();
 
-                    //TODO - Deve ser informado o codigo gerado nesse momento?
                     mensagem.add("Categoria cadastrada com sucesso!");
-                    setPassoAtual(getPassoAtual() + 1);
+                    setPasso(getPasso() + 1);
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
                     mensagem.add("Operação cancelada");
-                    setPassoAtual(getPassoAtual() + 1);
+                    setPasso(getPasso() + 1);
                 }
                 else{
                     mensagem.add("Resposta inválida");
@@ -123,6 +124,6 @@ public class ControladorCadastroBem extends Controlador {
     @Override
     public void reset() {
         bem = new Bem();
-        setPassoAtual(1);
+        setPasso(1);
     }
 }

@@ -36,7 +36,7 @@ public class Main {
         operacoes.add(new ControladorCadastroBem());
         operacoes.add(new ControladorListarLocalizacao());
         operacoes.add(new ControladorListarCategoria());
-        //operacoes.add(new ControladorListarBem());
+        operacoes.add(new ControladorListarBem());
 
         //loop infinito pode ser alterado por algum timer de intervalo curto
         while (true){
@@ -92,7 +92,7 @@ public class Main {
                         else{
                             mensagens = operacaoAtual.chat(update.message().text());
 
-                            if(operacaoAtual.getPassoAtual() == operacaoAtual.getPassosTotal()+1){
+                            if(operacaoAtual.getPasso() == operacaoAtual.getPassosTotal()+1){
                                 operacaoAtual.reset();
                                 operacaoAtual = null;
                             }
