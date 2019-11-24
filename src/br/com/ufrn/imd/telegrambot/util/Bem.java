@@ -44,4 +44,14 @@ public class Bem {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
+    public String toString() {
+        String bem = "Código: " + this.getCodigo()
+                   + "\nNome: " + this.getNome()
+                   + "\nDescrição: " + this.getDescricao()
+                   + "\nLocalização: " + this.getLocalizacao().getNome()
+                   + "\nCategoria: " + this.getCategoria().getNome() + "\n";
+
+        return bem;
+    }
 }

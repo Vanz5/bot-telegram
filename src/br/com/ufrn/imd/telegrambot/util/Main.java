@@ -60,6 +60,9 @@ public class Main {
 
 
                 //Tratamento de mensagens do chat
+
+
+
                 if(operacaoAtual == null){
                     for(Controlador controlador: operacoes){
                         if(controlador.getOperacao().equals(update.message().text())){
@@ -71,14 +74,16 @@ public class Main {
                     if(operacaoAtual != null){
                         mensagens = operacaoAtual.chat(update.message().text());
                     }
-                    else if(update.message().text().equals("/ajuda")) {
-                        mensagens.add("Os comandos disponíveis são:\n /addlocalizacao - Cadastrar localização.\n /addcategoria - Cadastrar categoria." +
-                                "\n /addbem - Cadastrar bem.\n /listarlocalizacao - Listar localizações cadastradas. " +
-                                "\n /listarcategoria - Listar categorias cadastradas.\n /listarbem - Listar bens cadastrados em uma localização.");
-                        //TODO - adicionar comandos em ajuda
-                    }
                     else{
-                        mensagens.add("Não consigo realizar essa operação.\n\nPara conferir as operações disponíveis, utilize o comando /ajuda.");
+                        if(update.message().text().equals("/ajuda")) {
+                            mensagens.add("Os comandos disponíveis são:\n /addlocalizacao - Cadastrar localização.\n /addcategoria - Cadastrar categoria." +
+                                    "\n /addbem - Cadastrar bem.\n /listarlocalizacao - Listar localizações cadastradas. " +
+                                    "\n /listarcategoria - Listar categorias cadastradas.\n /listarbem - Listar bens cadastrados em uma localização.");
+                            //TODO - adicionar comandos em ajuda
+                        }
+                        else {
+                            mensagens.add("Não consigo realizar essa operação.\n\nPara conferir as operações disponíveis, utilize o comando /ajuda.");
+                        }
                     }
                 }
                 else{

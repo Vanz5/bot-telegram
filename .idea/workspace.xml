@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="305910fd-b963-4290-8008-a2ad210443eb" name="Default Changelist" comment="">
+    <list default="true" id="78ab3f7a-9a56-4aa7-9309-37770cf8d99a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BotPatrimonioTelegram.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BotPatrimonioTelegram.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/controladores/Controlador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/controladores/Controlador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/controladores/ControladorCadastroLocalizacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/controladores/ControladorCadastroLocalizacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Bem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Bem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Categoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Categoria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Localizacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Localizacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/FuncoesAuxiliares.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/FuncoesAuxiliares.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Bem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Bem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1TXIH5UugrK2Zv5f44TuwLqA0Hx" />
+  <component name="ProjectId" id="1U4PTetssKbpKAksedcbEwBBZA8" />
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -58,11 +61,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="305910fd-b963-4290-8008-a2ad210443eb" name="Default Changelist" comment="" />
-      <created>1573599922801</created>
+      <changelist id="78ab3f7a-9a56-4aa7-9309-37770cf8d99a" name="Default Changelist" comment="" />
+      <created>1574612903970</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1573599922801</updated>
+      <updated>1574612903970</updated>
     </task>
     <servers />
   </component>
