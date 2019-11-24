@@ -37,6 +37,9 @@ public class Main {
         operacoes.add(new ControladorListarLocalizacao());
         operacoes.add(new ControladorListarCategoria());
         operacoes.add(new ControladorListarBem());
+        operacoes.add(new ControladorBuscarBemCodigo());
+        operacoes.add(new ControladorBuscarBemDescricao());
+        operacoes.add(new ControladorBuscarBemNome());
 
         //loop infinito pode ser alterado por algum timer de intervalo curto
         while (true){

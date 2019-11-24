@@ -50,7 +50,7 @@ public class ControladorBuscarBemCodigo extends Controlador {
     public Bem buscarBemCodigo(List<Bem> bens, String codigo){
         Bem bem = null;
         for(Bem x : bens){
-            if(codigo == x.getCodigo()){
+            if(codigo.equalsIgnoreCase(x.getCodigo())){
                 bem = x;
                 break;
             }

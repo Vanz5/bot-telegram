@@ -1,11 +1,7 @@
 package br.com.ufrn.imd.telegrambot.util;
 
 public class Bem {
-    //3 - cadastrar bem (cadeira, mesa, computador, sabão em pó, etc.)
-    //a. Realiza o cadastro de um bem. Os dados deverão ser salvos em alguma memória não volátil,
-    // por exemplo, um arquivo. Um  bem deverá conter no mínimo os atributos codig, nome, descricao, localização e categoria
-
-    private String codigo;
+    private String codigo; //Inicialmente foi pensando como INTEIRO mas como código de itens de patrimonio normalmente são misturas de numeros e letras, foi modificado para String
     private String nome, descricao;
     private Localizacao localizacao;
     private Categoria categoria;

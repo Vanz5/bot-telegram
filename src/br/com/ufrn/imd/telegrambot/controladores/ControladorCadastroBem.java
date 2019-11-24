@@ -19,6 +19,7 @@ public class ControladorCadastroBem extends Controlador {
 
     @Override
     public List<String> chat(String mensagemRecebida) throws IOException {
+        List<Bem> bens = aux.listaBens();
         List<String> mensagem = new ArrayList<String>();
         switch (getPasso()){
             case 1:
@@ -26,9 +27,17 @@ public class ControladorCadastroBem extends Controlador {
                 setPasso(getPasso() + 1);
                 break;
             case 2:
-                //TODO - Tratamento para conferir se o código está livre para uso
-                bem.setCodigo(mensagemRecebida);
-                setPasso(getPasso() + 1);
+                String codigo = (mensagemRecebida);
+                ControladorBuscarBemCodigo buscarBemCodigo = new ControladorBuscarBemCodigo();
+                Bem encontrado = buscarBemCodigo.buscarBemCodigo(bens,codigo);
+                if(encontrado == null){
+                    bem.setCodigo(codigo);
+                    setPasso(getPasso() + 1);
+                    mensagem = chat(mensagemRecebida);
+                }
+                else{
+                    mensagem.add("O codigo informado já está sendo utilizado para o bem: "+ encontrado.getNome()+"\n Informe um código diferente");
+                }
                 break;
             case 3:
                 mensagem.add("Qual é o nome do bem que vai ser cadastrado?");
@@ -48,8 +57,8 @@ public class ControladorCadastroBem extends Controlador {
                 break;
             case 7:
                 //TODO - listar opções na hora de inserir categorias e localizações
-                mensagem.add("Qual é a localização desse bem?\n Abaixo estão todas categorias cadastradas");
-                //mensagem.add(adicionar uma lista só com o nome das localizaçõoes numa lista);
+                mensagem.add("Qual é a localização desse bem?\n Abaixo estão todas localizações cadastradas");
+                //mensagem.add(adicionar uma lista somente com os nomes das localizaçõoes);
                 setPasso(getPasso() + 1);
                 break;
             case 8:
@@ -63,12 +72,12 @@ public class ControladorCadastroBem extends Controlador {
                 else {
                     bem.setLocalizacao(localizacao);
                     setPasso(getPasso() + 1);
-                    //mensagem = chat(mensagemRecebida); //TODO - descobrir o que essa linha faz
+                    mensagem = chat(mensagemRecebida); //TODO - descobrir o que essa linha faz
                 }
                 break;
             case 9:
-                mensagem.add("Qual é a categoria desse bem?");
-                //mensagem.add(adicionar uma lista só com o nome das categorias numa lista);
+                mensagem.add("Qual é a categoria desse bem?\n Abaixo estão todas categorias cadastradas");
+                //mensagem.add(adicionar uma lista somente com os nomes das);
                 setPasso(getPasso() + 1);
                 break;
             case 10:
@@ -82,7 +91,7 @@ public class ControladorCadastroBem extends Controlador {
                 else{
                     bem.setCategoria(categoria);
                     setPasso(getPasso() + 1);
-                    //mensagem = chat(mensagemRecebida);
+                    mensagem = chat(mensagemRecebida);
                 }
                 break;
             case 11:
@@ -117,7 +126,9 @@ public class ControladorCadastroBem extends Controlador {
 
     @Override
     protected String finalizarOperacao() {
-        String mensagem = "Confirme se os dados abaixo estão certos: \nNome: " + bem.getNome() + "\nDescrição: " + bem.getDescricao() +"\nLocalização: " + bem.getLocalizacao().getNome() + "\nCategoria: " + bem.getCategoria().getNome() + "\n\nPosso salvar esses dados? (s/n)";
+        String mensagem = "Confirme se os dados abaixo estão certos: \nCódigo: "+ bem.getCodigo() +"\nNome: " + bem.getNome() +
+                "\nDescrição: " + bem.getDescricao() +"\nLocalização: " + bem.getLocalizacao().getNome() + "\nCategoria: " + bem.getCategoria().getNome() +
+                "\n\nPosso salvar esses dados? (s/n)";
         return mensagem;
     }
 
