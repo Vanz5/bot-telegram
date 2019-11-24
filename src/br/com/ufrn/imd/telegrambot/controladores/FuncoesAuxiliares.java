@@ -30,6 +30,14 @@ public class FuncoesAuxiliares {
         return localizacoes;
     }
 
+    public List<String> ImprimirNomeLocalizacoes(List<Localizacao> localizacoes) throws IOException {
+        List<String> nomes = new ArrayList<>();
+        for (Localizacao l: localizacoes) {
+            nomes.add(l.getNome() + "\n");
+        }
+        return nomes;
+    }
+
     public List<Categoria> listaCategorias() throws  IOException{
         int numLinha = 1;
         List<Categoria> categorias = new ArrayList<>();
@@ -54,6 +62,14 @@ public class FuncoesAuxiliares {
             numLinha++;
         }
         return categorias;
+    }
+
+    public List<String> ImprimirNomeCategorias(List<Categoria> categorias) throws IOException {
+        List<String> nomes = new ArrayList<>();
+        for (Categoria c: categorias) {
+            nomes.add(c.getNome() + "\n");
+        }
+        return nomes;
     }
 
     public List<Bem> listaBens() throws IOException {
