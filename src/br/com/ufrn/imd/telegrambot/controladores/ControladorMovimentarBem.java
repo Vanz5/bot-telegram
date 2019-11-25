@@ -52,13 +52,9 @@ public class ControladorMovimentarBem extends Controlador {
                             "cadastro da localização.");
                 }
                 else {
-                    for(Bem x : bens){
-                        if(x.getCodigo().equalsIgnoreCase(bem.getCodigo())){
-                            x.setLocalizacao(localizacao); //TODO - localização não esta sendo modificada como deveria
-                            setPasso(getPasso() + 1);
-                            break;
-                        }
-                    }
+                    bem.setLocalizacao(localizacao);
+                    setPasso(getPasso() + 1);
+                    break;
                 }
             case 5:
                 mensagem.add(finalizarOperacao());
@@ -66,6 +62,8 @@ public class ControladorMovimentarBem extends Controlador {
                 break;
             case 6:
                 if(mensagemRecebida.toLowerCase().equals("s")){
+                    bens = aux.removerBem(bens, bem.getCodigo());
+                    bens.add(bem);
                     //Apagando os dados do arquivo
                     PrintWriter writer = new PrintWriter("bem.txt");
                     writer.print("");
