@@ -33,7 +33,7 @@ public class ControladorApagarCategoria extends Controlador{
                 }
                 else {
                     for(Bem x : bens){
-                        if(x.getCategoria().getNome().equalsIgnoreCase(categoria.getNome())){ //TODO - DESCOBRIR POR QUE CARALHOS AQUI TA DANDO NULLPOINTEREXCEPTION (ESTÁ IGUAL AO APAGARLOCALIZAÇÃO)
+                        if(x.getCategoria().getNome().equalsIgnoreCase(categoria.getNome())){ //TODO - DESCOBRIR POR QUE CARALHOS AQUI TA DANDO NULLPOINTEREXCEPTION (TA IGUAL AO APAGARLOCALIZAÇÃO)
                             mensagem.add("A categoria inserida ainda tem bens associados, antes de apagar uma categoria" +
                                     " é preciso remover ou movimentar todos os seus bens");
                             break;

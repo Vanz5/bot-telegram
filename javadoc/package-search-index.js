@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"br.com.ufrn.imd.telegrambot.controladores"},{"l":"br.com.ufrn.imd.telegrambot.util"}]
