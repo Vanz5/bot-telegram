@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="78ab3f7a-9a56-4aa7-9309-37770cf8d99a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorListarCategoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorListarCategoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorListarLocalizacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorListarLocalizacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Categoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Localizacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Localizacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/Controlador.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
