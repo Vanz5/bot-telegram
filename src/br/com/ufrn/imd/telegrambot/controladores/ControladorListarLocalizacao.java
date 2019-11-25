@@ -29,7 +29,7 @@ public class ControladorListarLocalizacao extends Controlador {
                 else {
                     mensagem.add("Localizações cadastradas:\n");
                     for(Localizacao x : localizacoes) { mensagem.add(x.toString()); }
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                 }
                 break;
             default:

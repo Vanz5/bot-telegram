@@ -21,7 +21,7 @@ public class ControladorApagarBem extends Controlador {
         switch (getPasso()){
             case 1:
                 mensagem.add("Qual é o código do bem que vai ser excluido?");
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 2:
                 Bem encontrado = aux.buscarBemCodigo(bens,mensagemRecebida);
@@ -32,12 +32,12 @@ public class ControladorApagarBem extends Controlador {
                 else{
                     mensagem.add("O codigo informado está sendo utilizado para o bem:\n"+ encontrado.toString());
                     bem = encontrado;
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                     break;
                 }
             case 3:
                 mensagem.add(finalizarOperacao());
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 4:
                 if(mensagemRecebida.toLowerCase().equals("s")){
@@ -58,11 +58,11 @@ public class ControladorApagarBem extends Controlador {
                     file.close();
 
                     mensagem.add("Bem apagado com sucesso!");
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
                     mensagem.add("Operação cancelada");
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                 }
                 else{
                     mensagem.add("Resposta inválida");

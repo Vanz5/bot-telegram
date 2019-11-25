@@ -24,7 +24,7 @@ public class ControladorApagarCategoria extends Controlador{
             case 1:
                 mensagem.add("Qual é o nome da categoria que vai ser excluida?");
                 //TODO - adicionar a lista dos nomes das categorias = no cadastro de bem
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 2:
                 categoria = aux.buscaCategoria(categorias,mensagemRecebida);
@@ -39,12 +39,12 @@ public class ControladorApagarCategoria extends Controlador{
                             break;
                         }
                     }
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                     break;
                 }
             case 3:
                 mensagem.add(finalizarOperacao());
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 4:
                 if(mensagemRecebida.toLowerCase().equals("s")){
@@ -64,11 +64,11 @@ public class ControladorApagarCategoria extends Controlador{
                     file.close();
 
                     mensagem.add("Categoria apagada com sucesso!");
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
                     mensagem.add("Operação cancelada");
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                 }
                 else{
                     mensagem.add("Resposta inválida");

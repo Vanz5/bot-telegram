@@ -13,18 +13,14 @@ public class FuncoesAuxiliares {
         Localizacao atual = new Localizacao();
 
         BufferedReader buffer = new BufferedReader(new FileReader("localizacao.txt"));
-        while(buffer.ready()){
-            if(numLinha % 3 == 0){
+        while (buffer.ready()) {
+            if (numLinha % 3 == 0) {
                 localizacoes.add(atual);
                 atual = new Localizacao();
                 buffer.readLine();
             }
-            else if(numLinha % 3 == 1){
-                atual.setNome(buffer.readLine());
-            }
-            else if(numLinha % 3 == 2){
-                atual.setDescricao(buffer.readLine());
-            }
+            else if (numLinha % 3 == 1) { atual.setNome(buffer.readLine()); }
+            else if (numLinha % 3 == 2) { atual.setDescricao(buffer.readLine()); }
             numLinha++;
         }
         return localizacoes;
@@ -38,27 +34,21 @@ public class FuncoesAuxiliares {
         return nomes;
     }
 
-    public List<Categoria> listaCategorias() throws  IOException{
+    public List<Categoria> listaCategorias() throws  IOException {
         int numLinha = 1;
         List<Categoria> categorias = new ArrayList<>();
         Categoria atual = new Categoria();
 
         BufferedReader buffer = new BufferedReader(new FileReader("categoria.txt"));
-        while(buffer.ready()){
-            if(numLinha % 4 == 0){
+        while (buffer.ready()) {
+            if (numLinha % 4 == 0) {
                 categorias.add(atual);
                 atual = new Categoria();
                 buffer.readLine();
             }
-            else if(numLinha % 4 == 1){
-                atual.setCodigo(buffer.readLine());
-            }
-            else if(numLinha % 4 == 2){
-                atual.setNome(buffer.readLine());
-            }
-            else if(numLinha % 4 == 3){
-                atual.setDescricao(buffer.readLine());
-            }
+            else if (numLinha % 4 == 1) { atual.setCodigo(buffer.readLine()); }
+            else if (numLinha % 4 == 2) { atual.setNome(buffer.readLine()); }
+            else if (numLinha % 4 == 3) { atual.setDescricao(buffer.readLine()); }
             numLinha++;
         }
         return categorias;
@@ -80,38 +70,27 @@ public class FuncoesAuxiliares {
         Bem atual = new Bem();
 
         BufferedReader buffer = new BufferedReader(new FileReader("bem.txt"));
-        while(buffer.ready()){
-            if (numLinha % 6 == 0){
+        while (buffer.ready()) {
+            if (numLinha % 6 == 0) {
                 bens.add(atual);
                 atual = new Bem();
                 buffer.readLine();
             }
-            else if(numLinha % 6 == 1){
-                atual.setCodigo(buffer.readLine());
-            }
-            else if(numLinha % 6 == 2){
-                atual.setNome(buffer.readLine());
-            }
-            else if(numLinha % 6 == 3){
-                atual.setDescricao(buffer.readLine());
-            }
-            else if(numLinha % 6 == 4){
-                atual.setLocalizacao(buscaLocalizacao(localizacoes, buffer.readLine()));
-            }
-            else if(numLinha % 6 == 5){
-                atual.setCategoria(buscaCategoria(categorias, buffer.readLine()));
-            }
+            else if (numLinha % 6 == 1) { atual.setCodigo(buffer.readLine()); }
+            else if (numLinha % 6 == 2) { atual.setNome(buffer.readLine()); }
+            else if (numLinha % 6 == 3) { atual.setDescricao(buffer.readLine()); }
+            else if (numLinha % 6 == 4) { atual.setLocalizacao(buscaLocalizacao(localizacoes, buffer.readLine())); }
+            else if (numLinha % 6 == 5) { atual.setCategoria(buscaCategoria(categorias, buffer.readLine())); }
 
             numLinha++;
         }
-
         return bens;
     }
 
     public Localizacao buscaLocalizacao(List<Localizacao> localizacoes, String nome) {
         Localizacao localizacao = null;
         for (Localizacao x : localizacoes){
-            if(nome.equalsIgnoreCase(x.getNome())){
+            if (nome.equalsIgnoreCase(x.getNome())) {
                 localizacao = x;
                 break;
             }
@@ -122,44 +101,44 @@ public class FuncoesAuxiliares {
     public Categoria buscaCategoria(List<Categoria> categorias, String nome) {
         Categoria categoria = null;
         for (Categoria x : categorias){
-            if(nome.equalsIgnoreCase(x.getNome())){
+            if (nome.equalsIgnoreCase(x.getNome())) {
                 categoria = x;
             }
         }
         return categoria;
     }
 
-    public List<Bem> removerBem(List<Bem> bens, String codigo){
-        for(Bem x : new ArrayList<Bem>(bens)){
-            if(codigo.equalsIgnoreCase(x.getCodigo())){
+    public List<Bem> removerBem(List<Bem> bens, String codigo) {
+        for (Bem x : new ArrayList<Bem>(bens)) {
+            if (codigo.equalsIgnoreCase(x.getCodigo())) {
                 bens.remove(x);
             }
         }
         return bens;
     }
 
-    public List<Localizacao> removerLocalizacao(List<Localizacao> localizacoes, String nome){
-        for(Localizacao x : new ArrayList<Localizacao>(localizacoes)){
-            if(nome.equalsIgnoreCase(x.getNome())){
+    public List<Localizacao> removerLocalizacao(List<Localizacao> localizacoes, String nome) {
+        for (Localizacao x : new ArrayList<Localizacao>(localizacoes)) {
+            if (nome.equalsIgnoreCase(x.getNome())) {
                 localizacoes.remove(x);
             }
         }
         return localizacoes;
     }
 
-    public List<Categoria> removerCategoria(List<Categoria> categorias, String nome){
-        for(Categoria x : new ArrayList<Categoria>(categorias)){
-            if(nome.equalsIgnoreCase(x.getNome())){
+    public List<Categoria> removerCategoria(List<Categoria> categorias, String nome) {
+        for (Categoria x : new ArrayList<Categoria>(categorias)) {
+            if (nome.equalsIgnoreCase(x.getNome())) {
                 categorias.remove(x);
             }
         }
         return categorias;
     }
 
-    public Bem buscarBemCodigo(List<Bem> bens, String codigo){
+    public Bem buscarBemCodigo(List<Bem> bens, String codigo) {
         Bem bem = null;
-        for(Bem x : bens){
-            if(codigo.equalsIgnoreCase(x.getCodigo())){
+        for (Bem x : bens) {
+            if (codigo.equalsIgnoreCase(x.getCodigo())) {
                 bem = x;
                 break;
             }
@@ -167,10 +146,10 @@ public class FuncoesAuxiliares {
         return bem;
     }
 
-    public Bem buscarBemNome(List<Bem> bens, String nome){
+    public Bem buscarBemNome(List<Bem> bens, String nome) {
         Bem bem = null;
-        for(Bem x : bens){
-            if(nome.equalsIgnoreCase(x.getNome())){
+        for (Bem x : bens) {
+            if (nome.equalsIgnoreCase(x.getNome())) {
                 bem = x;
                 break;
             }
@@ -179,10 +158,10 @@ public class FuncoesAuxiliares {
     }
 
 
-        public List<Bem> buscaBemLocalizacao(List<Bem> bens, String localizacao){
+        public List<Bem> buscarBemLocalizacao(List<Bem> bens, String localizacao) {
         List<Bem> resultado = new ArrayList<>();
-        for(Bem x: bens){
-            if(localizacao.equalsIgnoreCase(x.getLocalizacao().getNome())){
+        for (Bem x: bens) {
+            if (localizacao.equalsIgnoreCase(x.getLocalizacao().getNome())) {
                 resultado.add(x);
             }
         }

@@ -29,7 +29,7 @@ public class ControladorListarCategoria extends Controlador {
                 else {
                     mensagem.add("Categorias cadastradas:\n");
                     for(Categoria x : categorias) { mensagem.add(x.toString()); }
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                 }
                 break;
             default:

@@ -29,7 +29,7 @@ public class ControladorListarBem extends Controlador {
                 for(String x : nomesLocalizacoes){
                     mensagem.add(x);
                 }
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 2:
                 Localizacao localizacao = aux.buscaLocalizacao(localizacoes,mensagemRecebida);
@@ -39,7 +39,7 @@ public class ControladorListarBem extends Controlador {
                             "cadastro da localização.");
                 }
                 else {
-                    List<Bem> encontrados = aux.buscaBemLocalizacao(bens,mensagemRecebida);
+                    List<Bem> encontrados = aux.buscarBemLocalizacao(bens,mensagemRecebida);
 
                     if(encontrados.isEmpty()){
                         mensagem.add("Não existem nenhum bem nesta localização, insira outra localização ou '/cancelar' para sair dessa operação");
@@ -49,7 +49,7 @@ public class ControladorListarBem extends Controlador {
                         for(Bem x : encontrados){
                             mensagem.add(x.toString());
                         }
-                        setPasso(getPasso() + 1);
+                        incrementarPasso();
                     }
                     break;
                 }

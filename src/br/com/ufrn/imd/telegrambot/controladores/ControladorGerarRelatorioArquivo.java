@@ -52,7 +52,7 @@ public class ControladorGerarRelatorioArquivo extends Controlador {
                 file.write("Relatório finalizado");
                 file.close();
                 mensagem.add("O relatorio foi gerado no arquivo: 'relatorio"+ dtfArquivo.format(data) + ".txt'");
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
 
         }

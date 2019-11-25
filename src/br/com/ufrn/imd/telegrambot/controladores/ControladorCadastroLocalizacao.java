@@ -22,23 +22,23 @@ public class ControladorCadastroLocalizacao extends Controlador {
         switch (getPasso()){
             case 1:
                 mensagem.add("Qual é o nome da localização que vai ser cadastrada?");
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 2:
                 localizacao.setNome(mensagemRecebida);
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 3:
                 mensagem.add("Escreva uma pequena descrição dessa localização.");
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 4:
                 localizacao.setDescricao(mensagemRecebida);
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 5:
                 mensagem.add(finalizarOperacao());
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 6:
                 if(mensagemRecebida.toLowerCase().equals("s")){
@@ -49,11 +49,11 @@ public class ControladorCadastroLocalizacao extends Controlador {
                     file.close();
 
                     mensagem.add("Localização cadastrada com sucesso!");
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
                     mensagem.add("Operação cancelada");
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                 }
                 else{
                     mensagem.add("Resposta inválida");

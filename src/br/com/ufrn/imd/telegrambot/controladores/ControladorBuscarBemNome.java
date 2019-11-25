@@ -20,7 +20,7 @@ public class ControladorBuscarBemNome extends Controlador {
         switch (getPasso()){
             case 1:
                 mensagem.add("Informe o nome do bem que você está procurando");
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 2:
                 String nome = mensagemRecebida;
@@ -31,7 +31,7 @@ public class ControladorBuscarBemNome extends Controlador {
                     break;
                 }
                 mensagem.add(procurado.toString());
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
         }
         return mensagem;

@@ -23,7 +23,7 @@ public class ControladorMovimentarBem extends Controlador {
         switch (getPasso()) {
             case 1:
                 mensagem.add("Qual é o código do bem que vai ser movido?");
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 2:
                 Bem encontrado = aux.buscarBemCodigo(bens, mensagemRecebida);
@@ -33,7 +33,7 @@ public class ControladorMovimentarBem extends Controlador {
                 } else {
                     mensagem.add("O codigo informado está sendo utilizado para o bem:\n" + encontrado.toString());
                     bem = encontrado;
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                     break;
                 }
             case 3:
@@ -42,7 +42,7 @@ public class ControladorMovimentarBem extends Controlador {
                 for(String x : nomesLocalizacoes){
                     mensagem.add(x);
                 }
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 4:
                 Localizacao localizacao = aux.buscaLocalizacao(localizacoes,mensagemRecebida);
@@ -53,12 +53,12 @@ public class ControladorMovimentarBem extends Controlador {
                 }
                 else {
                     bem.setLocalizacao(localizacao);
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                     break;
                 }
             case 5:
                 mensagem.add(finalizarOperacao());
-                setPasso(getPasso() + 1 );
+                incrementarPasso();
                 break;
             case 6:
                 if(mensagemRecebida.toLowerCase().equals("s")){
@@ -79,11 +79,11 @@ public class ControladorMovimentarBem extends Controlador {
                     file.close();
 
                     mensagem.add("Bem movido com sucesso!");
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
                     mensagem.add("Operação cancelada");
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                 }
                 else{
                     mensagem.add("Resposta inválida");

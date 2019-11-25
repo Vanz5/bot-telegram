@@ -26,7 +26,7 @@ public class ControladorCadastroBem extends Controlador {
         switch (getPasso()){
             case 1:
                 mensagem.add("Qual é o código do bem que vai ser cadastrado?");
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 2:
                 String codigo = (mensagemRecebida);
@@ -34,7 +34,7 @@ public class ControladorCadastroBem extends Controlador {
                 Bem encontrado = aux.buscarBemCodigo(bens,codigo);
                 if(encontrado == null){
                     bem.setCodigo(codigo);
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                     mensagem = chat(mensagemRecebida);
                 }
                 else{
@@ -43,19 +43,19 @@ public class ControladorCadastroBem extends Controlador {
                 break;
             case 3:
                 mensagem.add("Qual é o nome do bem que vai ser cadastrado?");
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 4:
                 bem.setNome(mensagemRecebida);
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 5:
                 mensagem.add("Escreva uma pequena descrição desse bem.");
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 6:
                 bem.setDescricao(mensagemRecebida);
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 7:
                 mensagem.add("Qual é a localização desse bem?\nAbaixo estão todas localizações cadastradas");
@@ -63,7 +63,7 @@ public class ControladorCadastroBem extends Controlador {
                 for(String x : nomesLocalizacoes){
                     mensagem.add(x);
                 }
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 8:
                 Localizacao localizacao = aux.buscaLocalizacao(localizacoes,mensagemRecebida);
@@ -74,7 +74,7 @@ public class ControladorCadastroBem extends Controlador {
                 }
                 else {
                     bem.setLocalizacao(localizacao);
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                     mensagem = chat(mensagemRecebida); //TODO - descobrir o que essa linha faz
                 }
                 break;
@@ -84,7 +84,7 @@ public class ControladorCadastroBem extends Controlador {
                 for(String x : nomesCategoria){
                     mensagem.add(x);
                 }
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 10:
                 Categoria categoria = aux.buscaCategoria(categorias,mensagemRecebida);
@@ -95,13 +95,13 @@ public class ControladorCadastroBem extends Controlador {
                 }
                 else{
                     bem.setCategoria(categoria);
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                     mensagem = chat(mensagemRecebida);
                 }
                 break;
             case 11:
                 mensagem.add(finalizarOperacao());
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 12:
                 if(mensagemRecebida.toLowerCase().equals("s")){
@@ -112,11 +112,11 @@ public class ControladorCadastroBem extends Controlador {
                     file.close();
 
                     mensagem.add("Bem cadastrado com sucesso!");
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
                     mensagem.add("Operação cancelada");
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                 }
                 else{
                     mensagem.add("Resposta inválida");

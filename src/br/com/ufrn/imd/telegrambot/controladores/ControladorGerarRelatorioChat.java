@@ -48,7 +48,7 @@ public class ControladorGerarRelatorioChat extends Controlador {
                 }
 
                 mensagem.add("Relatório finalizado");
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
 
         }

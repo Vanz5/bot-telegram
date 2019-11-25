@@ -20,7 +20,7 @@ public class ControladorBuscarBemDescricao extends Controlador {
         switch (getPasso()){
             case 1:
                 mensagem.add("Informe a descrição do bem que você está procurando");
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 2:
                 String descricao = mensagemRecebida;
@@ -31,7 +31,7 @@ public class ControladorBuscarBemDescricao extends Controlador {
                     break;
                 }
                 mensagem.add(procurado.toString());
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
         }
         return mensagem;

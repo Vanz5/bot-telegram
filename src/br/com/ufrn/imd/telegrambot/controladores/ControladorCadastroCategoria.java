@@ -20,32 +20,32 @@ public class ControladorCadastroCategoria extends Controlador {
         switch (getPasso()){
             case 1:
                 mensagem.add("Qual é o código da categoria que vai ser cadastrada?");
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 2:
                 //TODO - Tratamento para conferir se o código está livre para uso ver o que foi feito em cadastar bem
                 categoria.setCodigo(mensagemRecebida);
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 3:
                 mensagem.add("Qual é o nome da categoria que vai ser cadastrada?");
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 4:
                 categoria.setNome(mensagemRecebida);
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 5:
                 mensagem.add("Escreva uma pequena descrição dessa categoria.");
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 6:
                 categoria.setDescricao(mensagemRecebida);
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 7:
                 mensagem.add(finalizarOperacao());
-                setPasso(getPasso() + 1);
+                incrementarPasso();
                 break;
             case 8:
                 if(mensagemRecebida.toLowerCase().equals("s")){
@@ -56,11 +56,11 @@ public class ControladorCadastroCategoria extends Controlador {
                     file.close();
 
                     mensagem.add("Categoria cadastrada com sucesso!");
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
                     mensagem.add("Operação cancelada");
-                    setPasso(getPasso() + 1);
+                    incrementarPasso();
                 }
                 else{
                     mensagem.add("Resposta inválida");
