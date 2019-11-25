@@ -1,7 +1,7 @@
 package br.com.ufrn.imd.telegrambot.util;
 
 public class Categoria {
-    private String codigo; //Inicialmente foi pensando como INTEIRO mas como código de itens de patrimonio normalmente são misturas de numeros e letras, foi modificado para String
+    private String codigo; //Inicialmente foi pensado como INTEIRO mas como código de itens de patrimonio normalmente são misturas de numeros e letras, foi modificado para String
     private String nome, descricao;
 
     public Categoria() {

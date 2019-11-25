@@ -8,13 +8,13 @@ import java.util.*;
 public class FuncoesAuxiliares {
 
     public List<Localizacao> listaLocalizacoes() throws IOException {
-        int numLinha = 0;
+        int numLinha = 1;
         List<Localizacao> localizacoes = new ArrayList<>();
         Localizacao atual = new Localizacao();
 
         BufferedReader buffer = new BufferedReader(new FileReader("localizacao.txt"));
         while(buffer.ready()){
-            if((numLinha == 0)||(numLinha % 3 == 0)){
+            if(numLinha % 3 == 0){
                 localizacoes.add(atual);
                 atual = new Localizacao();
                 buffer.readLine();
@@ -32,8 +32,8 @@ public class FuncoesAuxiliares {
 
     public List<String> ImprimirNomeLocalizacoes(List<Localizacao> localizacoes) throws IOException {
         List<String> nomes = new ArrayList<>();
-        for (Localizacao l: localizacoes) {
-            nomes.add(l.getNome() + "\n");
+        for (Localizacao x: localizacoes) {
+            nomes.add(x.getNome() + "\n");
         }
         return nomes;
     }
@@ -127,5 +127,47 @@ public class FuncoesAuxiliares {
             }
         }
         return categoria;
+    }
+
+    public List<Bem> removerBem(List<Bem> bens, String codigo){
+        for(Bem x : new ArrayList<Bem>(bens)){
+            if(codigo.equalsIgnoreCase(x.getCodigo())){
+                bens.remove(x);
+            }
+        }
+        return bens;
+    }
+
+    public Bem buscarBemCodigo(List<Bem> bens, String codigo){
+        Bem bem = null;
+        for(Bem x : bens){
+            if(codigo.equalsIgnoreCase(x.getCodigo())){
+                bem = x;
+                break;
+            }
+        }
+        return bem;
+    }
+
+    public Bem buscarBemNome(List<Bem> bens, String nome){
+        Bem bem = null;
+        for(Bem x : bens){
+            if(nome.equalsIgnoreCase(x.getNome())){
+                bem = x;
+                break;
+            }
+        }
+        return bem;
+    }
+
+
+        public List<Bem> buscaBemLocalizacao(List<Bem> bens, String localizacao){
+        List<Bem> resultado = new ArrayList<>();
+        for(Bem x: bens){
+            if(localizacao.equalsIgnoreCase(x.getLocalizacao().getNome())){
+                resultado.add(x);
+            }
+        }
+        return resultado;
     }
 }

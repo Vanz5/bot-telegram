@@ -2,10 +2,8 @@ package br.com.ufrn.imd.telegrambot.controladores;
 
 import br.com.ufrn.imd.telegrambot.util.Bem;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.time.LocalDate;
+import java.io.*;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
@@ -23,7 +21,7 @@ public class ControladorGerarRelatorioArquivo extends Controlador {
         List<Bem> bens = aux.listaBens();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         DateTimeFormatter dtfArquivo = DateTimeFormatter.ofPattern("ddMMyyyyHHmmss");
-        LocalDate data = LocalDate.now();
+        LocalDateTime data = LocalDateTime.now();
 
         switch (getPasso()){
             case 1:

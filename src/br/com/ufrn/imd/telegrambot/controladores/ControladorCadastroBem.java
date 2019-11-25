@@ -20,6 +20,8 @@ public class ControladorCadastroBem extends Controlador {
     @Override
     public List<String> chat(String mensagemRecebida) throws IOException {
         List<Bem> bens = aux.listaBens();
+        List<Localizacao> localizacoes = aux.listaLocalizacoes();
+        List<Categoria> categorias = aux.listaCategorias();
         List<String> mensagem = new ArrayList<String>();
         switch (getPasso()){
             case 1:
@@ -29,7 +31,7 @@ public class ControladorCadastroBem extends Controlador {
             case 2:
                 String codigo = (mensagemRecebida);
                 ControladorBuscarBemCodigo buscarBemCodigo = new ControladorBuscarBemCodigo();
-                Bem encontrado = buscarBemCodigo.buscarBemCodigo(bens,codigo);
+                Bem encontrado = aux.buscarBemCodigo(bens,codigo);
                 if(encontrado == null){
                     bem.setCodigo(codigo);
                     setPasso(getPasso() + 1);
@@ -56,13 +58,14 @@ public class ControladorCadastroBem extends Controlador {
                 setPasso(getPasso() + 1);
                 break;
             case 7:
-                //TODO - listar opções na hora de inserir categorias e localizações
-                mensagem.add("Qual é a localização desse bem?\n Abaixo estão todas localizações cadastradas");
-                //mensagem.add(adicionar uma lista somente com os nomes das localizaçõoes);
+                mensagem.add("Qual é a localização desse bem?\nAbaixo estão todas localizações cadastradas");
+                List<String> nomesLocalizacoes = aux.ImprimirNomeLocalizacoes(localizacoes);
+                for(String x : nomesLocalizacoes){
+                    mensagem.add(x);
+                }
                 setPasso(getPasso() + 1);
                 break;
             case 8:
-                List<Localizacao> localizacoes = aux.listaLocalizacoes();
                 Localizacao localizacao = aux.buscaLocalizacao(localizacoes,mensagemRecebida);
                 if (localizacao == null){
                     mensagem.add("A localização informada não foi encontrada no sistema, para cadastrar uma localização " +
@@ -76,12 +79,14 @@ public class ControladorCadastroBem extends Controlador {
                 }
                 break;
             case 9:
-                mensagem.add("Qual é a categoria desse bem?\n Abaixo estão todas categorias cadastradas");
-                //mensagem.add(adicionar uma lista somente com os nomes das);
+                mensagem.add("Qual é a categoria desse bem?\nAbaixo estão todas categorias cadastradas");
+                List<String> nomesCategoria = aux.ImprimirNomeCategorias(categorias);
+                for(String x : nomesCategoria){
+                    mensagem.add(x);
+                }
                 setPasso(getPasso() + 1);
                 break;
             case 10:
-                List<Categoria> categorias = aux.listaCategorias();
                 Categoria categoria = aux.buscaCategoria(categorias,mensagemRecebida);
                 if(categoria == null){
                     mensagem.add("A categoria informada não foi encontrada no sistema, para cadastrar uma nova categoria" +
@@ -106,7 +111,7 @@ public class ControladorCadastroBem extends Controlador {
                     file.newLine();
                     file.close();
 
-                    mensagem.add("Categoria cadastrada com sucesso!");
+                    mensagem.add("Bem cadastrado com sucesso!");
                     setPasso(getPasso() + 1);
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){

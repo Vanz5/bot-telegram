@@ -4,6 +4,7 @@ import br.com.ufrn.imd.telegrambot.util.Bem;
 
 import java.io.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
@@ -20,7 +21,7 @@ public class ControladorGerarRelatorioChat extends Controlador {
         List<String> mensagem = new ArrayList<>();
         List<Bem> bens = aux.listaBens();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        LocalDate data = LocalDate.now();
+        LocalDateTime data = LocalDateTime.now();
 
         switch (getPasso()){
             case 1:

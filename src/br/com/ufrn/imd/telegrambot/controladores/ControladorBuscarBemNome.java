@@ -24,7 +24,7 @@ public class ControladorBuscarBemNome extends Controlador {
                 break;
             case 2:
                 String nome = mensagemRecebida;
-                Bem procurado = buscarBemCodigo(bens,nome);
+                Bem procurado = aux.buscarBemNome(bens,nome);
 
                 if(procurado == null){
                     mensagem.add("Não foi possivel encontrar o nome inserido.\n Tente novamente ou escreva '/cancelar' para finalizar essa opração");
@@ -45,17 +45,6 @@ public class ControladorBuscarBemNome extends Controlador {
     @Override
     public void reset() {
         setPasso(1);
-    }
-
-    public Bem buscarBemCodigo(List<Bem> bens, String nome){
-        Bem bem = null;
-        for(Bem x : bens){
-            if(nome.equalsIgnoreCase(x.getNome())){
-                bem = x;
-                break;
-            }
-        }
-        return bem;
     }
 }
 

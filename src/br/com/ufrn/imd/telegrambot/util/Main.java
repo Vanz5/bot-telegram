@@ -40,6 +40,9 @@ public class Main {
         operacoes.add(new ControladorBuscarBemCodigo());
         operacoes.add(new ControladorBuscarBemDescricao());
         operacoes.add(new ControladorBuscarBemNome());
+        operacoes.add(new ControladorGerarRelatorioChat());
+        operacoes.add(new ControladorGerarRelatorioArquivo());
+        operacoes.add(new ControladorApagarBem());
 
         //loop infinito pode ser alterado por algum timer de intervalo curto
         while (true){
