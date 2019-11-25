@@ -11,7 +11,7 @@ public class ControladorApagarBem extends Controlador {
     FuncoesAuxiliares aux = new FuncoesAuxiliares();
 
     public ControladorApagarBem() {
-        super("/apagarbem", 20);
+        super("/apagarbem", 4);
         bem = new Bem();
     }
     @Override
@@ -84,6 +84,5 @@ public class ControladorApagarBem extends Controlador {
     @Override
     public void reset() {
         setPasso(1);
-
     }
 }
