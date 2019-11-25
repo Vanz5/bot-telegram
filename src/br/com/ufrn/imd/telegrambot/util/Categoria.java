@@ -28,4 +28,12 @@ public class Categoria {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public String toString() {
+        String categoria = "Código: " + this.getCodigo()
+                         + "\nNome: " + this.getNome()
+                         + "\nDescrição: " + this.getDescricao() + "\n";
+
+        return categoria;
+    }
 }

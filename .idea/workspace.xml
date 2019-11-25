@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78ab3f7a-9a56-4aa7-9309-37770cf8d99a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/controladores/Controlador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/controladores/Controlador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/controladores/ControladorCadastroLocalizacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/controladores/ControladorCadastroLocalizacao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Bem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Bem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Categoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Categoria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Localizacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Localizacao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BotPatrimonioTelegram/br/com/ufrn/imd/telegrambot/util/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/FuncoesAuxiliares.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/FuncoesAuxiliares.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Bem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Bem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorListarCategoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorListarCategoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorListarLocalizacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorListarLocalizacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Categoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Localizacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Localizacao.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +68,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

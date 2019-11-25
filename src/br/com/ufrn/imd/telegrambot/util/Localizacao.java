@@ -25,4 +25,11 @@ public class Localizacao {
         this.descricao = descricao;
     }
 
+    public String toString() {
+        String localizacao = "Nome: " + this.getNome()
+                           + "\nDescrição: " + this.getDescricao() + "\n";
+
+        return localizacao;
+    }
+
 }
