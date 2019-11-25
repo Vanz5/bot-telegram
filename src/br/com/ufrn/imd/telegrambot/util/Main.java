@@ -44,6 +44,8 @@ public class Main {
         operacoes.add(new ControladorGerarRelatorioArquivo());
         operacoes.add(new ControladorApagarBem());
         operacoes.add(new ControladorMovimentarBem());
+        operacoes.add(new ControladorApagarLocalizacao());
+        operacoes.add(new ControladorApagarCategoria());
 
         //loop infinito pode ser alterado por algum timer de intervalo curto
         while (true){
@@ -87,7 +89,8 @@ public class Main {
                                     "\n /buscarbemdescricao - Procurar por determinado bem a partir de sua descrição" +
                                     "\n /buscarbemnome - Procurar por determinado bem a partir de seu nome" +
                                     "\n /relatoriochat - Gerar relatório nesse chat \n /relatorioarquivo - Gerar relatorio em arquivo" +
-                                    "\n /apagarbem - remover bem do cadastro \n /movimentarbem - Modifica a localização de um bem");
+                                    "\n /apagarbem - remover bem do cadastro \n /movimentarbem - Modifica a localização de um bem" +
+                                    "\n /apagarlocalizacao - remover localização do cadastro\n /apagarcategoria - remover categoria do cadastro");
                             //TODO - adicionar comandos em ajuda
                         }
                         else {

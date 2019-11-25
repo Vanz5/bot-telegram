@@ -24,7 +24,7 @@ public class ControladorListarCategoria extends Controlador {
         switch (getPasso()){
             case 1:
                 if(categorias.isEmpty()){
-                    mensagem.add("Não existem categorias cadastradas, insira outra localização ou '/cancelar' para sair dessa operação");
+                    mensagem.add("Não existem categorias cadastradas, insira '/cancelar' para sair dessa operação");
                 }
                 else {
                     mensagem.add("Categorias cadastradas:\n");

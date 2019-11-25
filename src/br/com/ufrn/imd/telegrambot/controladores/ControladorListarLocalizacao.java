@@ -24,7 +24,7 @@ public class ControladorListarLocalizacao extends Controlador {
         switch (getPasso()){
             case 1:
                 if(localizacoes.isEmpty()){
-                    mensagem.add("Não existem localizações cadastradas, insira outra localização ou '/cancelar' para sair dessa operação");
+                    mensagem.add("Não existem localizações cadastradas, insira '/cancelar' para sair dessa operação");
                 }
                 else {
                     mensagem.add("Localizações cadastradas:\n");

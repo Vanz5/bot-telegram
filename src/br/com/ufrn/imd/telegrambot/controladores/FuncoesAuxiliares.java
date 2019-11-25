@@ -138,6 +138,24 @@ public class FuncoesAuxiliares {
         return bens;
     }
 
+    public List<Localizacao> removerLocalizacao(List<Localizacao> localizacoes, String nome){
+        for(Localizacao x : new ArrayList<Localizacao>(localizacoes)){
+            if(nome.equalsIgnoreCase(x.getNome())){
+                localizacoes.remove(x);
+            }
+        }
+        return localizacoes;
+    }
+
+    public List<Categoria> removerCategoria(List<Categoria> categorias, String nome){
+        for(Categoria x : new ArrayList<Categoria>(categorias)){
+            if(nome.equalsIgnoreCase(x.getNome())){
+                categorias.remove(x);
+            }
+        }
+        return categorias;
+    }
+
     public Bem buscarBemCodigo(List<Bem> bens, String codigo){
         Bem bem = null;
         for(Bem x : bens){

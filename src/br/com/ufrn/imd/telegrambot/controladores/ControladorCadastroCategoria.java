@@ -23,7 +23,7 @@ public class ControladorCadastroCategoria extends Controlador {
                 setPasso(getPasso() + 1);
                 break;
             case 2:
-                //TODO - Tratamento para conferir se o código está livre para uso
+                //TODO - Tratamento para conferir se o código está livre para uso ver o que foi feito em cadastar bem
                 categoria.setCodigo(mensagemRecebida);
                 setPasso(getPasso() + 1);
                 break;
