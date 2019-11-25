@@ -43,6 +43,7 @@ public class Main {
         operacoes.add(new ControladorGerarRelatorioChat());
         operacoes.add(new ControladorGerarRelatorioArquivo());
         operacoes.add(new ControladorApagarBem());
+        operacoes.add(new ControladorMovimentarBem());
 
         //loop infinito pode ser alterado por algum timer de intervalo curto
         while (true){
@@ -81,7 +82,12 @@ public class Main {
                         if(update.message().text().equals("/ajuda")) {
                             mensagens.add("Os comandos disponíveis são:\n /addlocalizacao - Cadastrar localização.\n /addcategoria - Cadastrar categoria." +
                                     "\n /addbem - Cadastrar bem.\n /listarlocalizacao - Listar localizações cadastradas. " +
-                                    "\n /listarcategoria - Listar categorias cadastradas.\n /listarbem - Listar bens cadastrados em uma localização.");
+                                    "\n /listarcategoria - Listar categorias cadastradas.\n /listarbem - Listar bens cadastrados em uma localização."+
+                                    "\n /buscarbemcodigo - Procurar por determinado bem a partir de seu código" +
+                                    "\n /buscarbemdescricao - Procurar por determinado bem a partir de sua descrição" +
+                                    "\n /buscarbemnome - Procurar por determinado bem a partir de seu nome" +
+                                    "\n /relatoriochat - Gerar relatório nesse chat \n /relatorioarquivo - Gerar relatorio em arquivo" +
+                                    "\n /apagarbem - remover bem do cadastro \n /movimentarbem - Modifica a localização de um bem");
                             //TODO - adicionar comandos em ajuda
                         }
                         else {

@@ -32,7 +32,6 @@ public class ControladorListarBem extends Controlador {
                 setPasso(getPasso() + 1);
                 break;
             case 2:
-                //String localizacao = mensagemRecebida;
                 Localizacao localizacao = aux.buscaLocalizacao(localizacoes,mensagemRecebida);
                 if (localizacao == null){
                     mensagem.add("A localização informada não foi encontrada no sistema, para cadastrar uma localização " +

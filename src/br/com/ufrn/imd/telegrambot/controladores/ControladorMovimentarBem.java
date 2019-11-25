@@ -1,48 +1,69 @@
 package br.com.ufrn.imd.telegrambot.controladores;
 
-import br.com.ufrn.imd.telegrambot.util.*;
+import br.com.ufrn.imd.telegrambot.util.Bem;
+import br.com.ufrn.imd.telegrambot.util.Localizacao;
 
 import java.io.*;
 import java.util.*;
 
-public class ControladorApagarBem extends Controlador {
+public class ControladorMovimentarBem extends Controlador {
 
-    Bem bem;
     FuncoesAuxiliares aux = new FuncoesAuxiliares();
-
-    public ControladorApagarBem() {
-        super("/apagarbem", 4);
+    Bem bem;
+    public ControladorMovimentarBem() {
+        super("/movimentarbem", 6);
         bem = new Bem();
     }
+
     @Override
     public List<String> chat(String mensagemRecebida) throws IOException {
         List<Bem> bens = aux.listaBens();
+        List<Localizacao> localizacoes = aux.listaLocalizacoes();
         List<String> mensagem = new ArrayList<String>();
-        switch (getPasso()){
+        switch (getPasso()) {
             case 1:
-                mensagem.add("Qual é o código do bem que vai ser excluido?");
+                mensagem.add("Qual é o código do bem que vai ser movido?");
                 setPasso(getPasso() + 1);
                 break;
             case 2:
-                Bem encontrado = aux.buscarBemCodigo(bens,mensagemRecebida);
-                if(encontrado == null){
+                Bem encontrado = aux.buscarBemCodigo(bens, mensagemRecebida);
+                if (encontrado == null) {
                     mensagem.add("O codigo informado não está sendo utilizado no momento, informe um código diferente");
 
-                }
-                else{
-                    mensagem.add("O codigo informado está sendo utilizado para o bem:\n"+ encontrado.toString());
+                } else {
+                    mensagem.add("O codigo informado está sendo utilizado para o bem:\n" + encontrado.toString());
                     bem = encontrado;
                     setPasso(getPasso() + 1);
                     break;
                 }
             case 3:
-                mensagem.add(finalizarOperacao());
+                mensagem.add("Informe a localização para qual o bem deve ser movido\nAbaixo estão todas localizações cadastradas");
+                List<String> nomesLocalizacoes = aux.ImprimirNomeLocalizacoes(localizacoes);
+                for(String x : nomesLocalizacoes){
+                    mensagem.add(x);
+                }
                 setPasso(getPasso() + 1);
                 break;
             case 4:
+                Localizacao localizacao = aux.buscaLocalizacao(localizacoes,mensagemRecebida);
+                if (localizacao == null){
+                    mensagem.add("A localização informada não foi encontrada no sistema, para cadastrar uma localização " +
+                            "primeiro insira '/cancelar' para sair desta operação e '/addlocalizacao' para iniciar o " +
+                            "cadastro da localização.");
+                }
+                else {
+                    bem.setLocalizacao(localizacao);
+                    setPasso(getPasso() + 1);
+                    break;
+                }
+            case 5:
+                mensagem.add(finalizarOperacao());
+                setPasso(getPasso() + 1 );
+                break;
+            case 6:
                 if(mensagemRecebida.toLowerCase().equals("s")){
-                    //Removendo bem selecionado da lista de bens
                     bens = aux.removerBem(bens, bem.getCodigo());
+                    bens.add(bem);
                     //Apagando os dados do arquivo
                     PrintWriter writer = new PrintWriter("bem.txt");
                     writer.print("");
@@ -57,7 +78,7 @@ public class ControladorApagarBem extends Controlador {
                     }
                     file.close();
 
-                    mensagem.add("Bem apagado com sucesso!");
+                    mensagem.add("Bem movido com sucesso!");
                     setPasso(getPasso() + 1);
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
@@ -68,16 +89,15 @@ public class ControladorApagarBem extends Controlador {
                     mensagem.add("Resposta inválida");
                 }
                 break;
-            default:
-                mensagem.add("Passo desconhecido");
-                break;
         }
         return mensagem;
     }
 
     @Override
     protected String finalizarOperacao() {
-        String mensagem = "Posso Apagar o bem? (s/n)";
+        String mensagem = "Confirme se os dados abaixo estão certos: \nCódigo: "+ bem.getCodigo() +"\nNome: " + bem.getNome() +
+                "\nDescrição: " + bem.getDescricao() +"\nLocalização: " + bem.getLocalizacao().getNome() + "\nCategoria: " + bem.getCategoria().getNome() +
+                "\n\nPosso salvar esses dados? (s/n)";
         return mensagem;
     }
 
@@ -85,4 +105,5 @@ public class ControladorApagarBem extends Controlador {
     public void reset() {
         setPasso(1);
     }
+
 }
