@@ -28,6 +28,8 @@ public abstract class Controlador {
         this.passo = passo;
     }
 
+    protected void incrementarPasso() { setPasso(getPasso() + 1); }
+
     public abstract List<String> chat(String mensagemRecebida) throws IOException;
 
     protected abstract String finalizarOperacao();
