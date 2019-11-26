@@ -5,8 +5,8 @@ public class Localizacao {
     private String descricao;
 
     public Localizacao() {
-        this.nome = null;
-        this.descricao = null;
+        this.nome = "";
+        this.descricao = "";
     }
 
     public String getNome(){

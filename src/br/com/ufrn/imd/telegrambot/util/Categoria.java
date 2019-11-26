@@ -6,9 +6,9 @@ public class Categoria {
     private String descricao;
 
     public Categoria() {
-        this.codigo = null;
-        this.nome = null;
-        this.descricao = null;
+        this.codigo = "";
+        this.nome = "";
+        this.descricao = "";
     }
 
     public String getCodigo() {

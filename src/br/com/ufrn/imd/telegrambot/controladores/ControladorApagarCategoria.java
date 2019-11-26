@@ -38,7 +38,8 @@ public class ControladorApagarCategoria extends Controlador{
                     for(Bem x : bens){
                         if(x.getCategoria().getNome().equalsIgnoreCase(categoria.getNome())){
                             mensagem.add("A categoria inserida ainda tem bens associados, antes de apagar uma categoria" +
-                                    " é preciso remover ou movimentar todos os seus bens");
+                                    " é preciso remover todos os seus bens");
+                            //TODO - tratar situação em que mesmo recebendo essa msg o usuario continua no fluxo do controlador normalmente
                             break;
                         }
                     }

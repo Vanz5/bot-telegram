@@ -54,6 +54,7 @@ public class ControladorMovimentarBem extends Controlador {
                 else {
                     bem.setLocalizacao(localizacao);
                     incrementarPasso();
+                    mensagem = chat(mensagemRecebida);
                     break;
                 }
             case 5:

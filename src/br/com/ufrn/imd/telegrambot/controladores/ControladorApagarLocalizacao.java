@@ -39,6 +39,7 @@ public class ControladorApagarLocalizacao extends Controlador{
                         if(x.getLocalizacao().getNome().equalsIgnoreCase(localizacao.getNome())){
                             mensagem.add("A localização inserida ainda tem bens associados, antes de apagar uma localização" +
                                     " é preciso remover ou movimentar todos os seus bens");
+                            //TODO - tratar situação em que mesmo recebendo essa msg o usuario continua no fluxo do controlador normalmente
                             break;
                         }
                     }

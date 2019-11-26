@@ -88,7 +88,7 @@ public class FuncoesAuxiliares {
     }
 
     public Localizacao buscaLocalizacao(List<Localizacao> localizacoes, String nome){
-        Localizacao localizacao = null;
+        Localizacao localizacao = new Localizacao();
         for(Localizacao x : localizacoes){
             if(nome.equalsIgnoreCase(x.getNome())) {
                 localizacao = x;
@@ -99,7 +99,7 @@ public class FuncoesAuxiliares {
     }
 
     public Categoria buscaCategoria(List<Categoria> categorias, String nome){
-        Categoria categoria = null;
+        Categoria categoria = new Categoria();
         for(Categoria x : categorias){
             if(nome.equalsIgnoreCase(x.getNome())) {
                 categoria = x;
@@ -137,7 +137,7 @@ public class FuncoesAuxiliares {
     }
 
     public Bem buscarBemCodigo(List<Bem> bens, String codigo){
-        Bem bem = null;
+        Bem bem = new Bem();
         for(Bem x : bens) {
             if(codigo.equalsIgnoreCase(x.getCodigo())) {
                 bem = x;
@@ -147,15 +147,15 @@ public class FuncoesAuxiliares {
         return bem;
     }
 
-    public Bem buscarBemNome(List<Bem> bens, String nome){
-        Bem bem = null;
+    public List<Bem> buscarBemNome(List<Bem> bens, String nome){
+        List <Bem> encontrados = new ArrayList<>();
         for(Bem x : bens) {
             if (nome.equalsIgnoreCase(x.getNome())) {
-                bem = x;
+                encontrados.add(x);
                 break;
             }
         }
-        return bem;
+        return encontrados;
     }
 
 
@@ -170,7 +170,7 @@ public class FuncoesAuxiliares {
     }
 
     public Categoria buscarCategoriaCodigo(List<Categoria> categorias, String codigo){
-        Categoria categoria = null;
+        Categoria categoria = new Categoria();
         for(Categoria x : categorias) {
             if(codigo.equalsIgnoreCase(x.getCodigo())) {
                 categoria = x;
@@ -180,14 +180,13 @@ public class FuncoesAuxiliares {
         return categoria;
     }
 
-    public Bem buscaBemDescricao(List<Bem> bens, String descricao){
-        Bem bem = null;
+    public List<Bem> buscaBemDescricao(List<Bem> bens, String descricao){
+        List<Bem> encontrados = new ArrayList<>();
         for(Bem x : bens){
             if(descricao.equalsIgnoreCase(x.getDescricao())){
-                bem = x;
-                break;
+                encontrados.add(x);
             }
         }
-        return bem;
+        return encontrados;
     }
 }

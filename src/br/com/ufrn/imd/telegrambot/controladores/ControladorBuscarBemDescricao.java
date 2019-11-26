@@ -24,13 +24,13 @@ public class ControladorBuscarBemDescricao extends Controlador {
                 break;
             case 2:
                 String descricao = mensagemRecebida;
-                Bem procurado = aux.buscaBemDescricao(bens,descricao); //TODO - alterar para uma lista de bens ja que a descrição pode ser repetida
+                List<Bem> procurados = aux.buscaBemDescricao(bens,descricao);
 
-                if(procurado == null){
+                if(procurados == null){
                     mensagem.add("Não foi possivel encontrar a descrição inserida.\nTente novamente ou escreva '/cancelar' para finalizar essa opração");
                     break;
                 }
-                mensagem.add(procurado.toString());
+                mensagem.add(procurados.toString());
                 incrementarPasso();
                 break;
             default:

@@ -8,9 +8,9 @@ public class Bem {
     private Categoria categoria;
 
     public Bem() {
-        this.codigo = null;
-        this.nome = null;
-        this.descricao = null;
+        this.codigo = "";
+        this.nome = "";
+        this.descricao = "";
         this.localizacao = new Localizacao();
         this.categoria = new Categoria();
     }
