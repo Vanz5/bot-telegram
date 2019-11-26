@@ -14,6 +14,7 @@ public class ControladorBuscarBemNome extends Controlador {
     }
     @Override
     public List<String> chat(String mensagemRecebida) throws IOException {
+        
         List<Bem> bens = aux.listaBens();
         List<String> mensagem = new ArrayList<String>();
 

@@ -22,10 +22,10 @@ public class ControladorListarLocalizacao extends Controlador {
 
         switch (getPasso()){
             case 1:
-                if(localizacoes.isEmpty()){ //Checa se existem localizacoes cadastradas
+                if(localizacoes.isEmpty()){ // Checa se existem localizacoes cadastradas.
                     mensagem.add("Não existem localizações cadastradas, insira '/cancelar' para sair desta operação.");
                 }
-                else { //Mostra no chat todas as localizações cadastradas em 'localizacoes.txt'
+                else { // Mostra no chat todas as localizações cadastradas em 'localizacoes.txt'.
                     mensagem.add("Localizações cadastradas:\n");
                     for(Localizacao x : localizacoes) { mensagem.add(x.toString()); }
                     mensagem.add(finalizarOperacao());

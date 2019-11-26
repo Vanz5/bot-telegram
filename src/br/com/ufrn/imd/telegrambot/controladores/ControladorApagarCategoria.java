@@ -17,14 +17,16 @@ public class ControladorApagarCategoria extends Controlador{
 
     @Override
     public List<String> chat(String mensagemRecebida) throws IOException {
+        
         List<Categoria> categorias = aux.listaCategorias();
         List<Bem> bens = aux.listaBens();
         List<String> mensagem = new ArrayList<String>();
+        
         switch (getPasso()){
             case 1:
                 mensagem.add("Qual é o nome da categoria a ser excluida?\nAbaixo estão todas categorias cadastradas.");
                 List<String> nomesCategoria = aux.ImprimirNomeCategorias(categorias); //Cria uma lista com apenas os nomes das categorias presentes em 'categoria.txt'
-                for(String x : nomesCategoria){ //TODO - modificar para mostar codigo e nome e receber codigo(que é unico) no lugar do nome
+                for(String x : nomesCategoria){ // TODO - modificar para mostar codigo e nome e receber codigo(que é unico) no lugar do nome
                     mensagem.add(x);
                 }
                 incrementarPasso();
@@ -39,7 +41,7 @@ public class ControladorApagarCategoria extends Controlador{
                         if(x.getCategoria().getNome().equalsIgnoreCase(categoria.getNome())){
                             mensagem.add("A categoria inserida ainda tem bens associados, antes de apagar uma categoria" +
                                     " é necessário remover todos os seus bens.");
-                            //TODO - tratar situação em que mesmo recebendo essa msg o usuario continua no fluxo do controlador normalmente
+                            // TODO - tratar situação em que mesmo recebendo essa msg o usuario continua no fluxo do controlador normalmente
                             break;
                         }
                     }
@@ -52,14 +54,14 @@ public class ControladorApagarCategoria extends Controlador{
                 break;
             case 4:
                 if(mensagemRecebida.toLowerCase().equals("s")){
-                    //Removendo categoria selecionada da lista de categorias
+                    // Removendo categoria selecionada da lista de categorias.
                     categorias = aux.removerCategoria(categorias, categoria.getNome());
-                    //Apagando os dados do arquivo
+                    // Apagando os dados do arquivo.
                     PrintWriter writer = new PrintWriter("categoria.txt");
                     writer.print("");
                     writer.close();
 
-                    //Reescrevendo dados do arquivo com a lista de bens atualizada
+                    // Reescrevendo dados do arquivo com a lista de bens atualizada.
                     BufferedWriter file = new BufferedWriter(new FileWriter("categoria.txt",true));
                     for(Categoria x : categorias){
                         file.write(x.getCodigo() + "\n" + x.getNome() + "\n" + x.getDescricao() + "\n------");

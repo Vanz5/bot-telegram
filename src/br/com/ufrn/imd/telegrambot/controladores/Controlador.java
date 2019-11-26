@@ -4,10 +4,13 @@ import java.io.IOException;
 import java.util.*;
 
 public abstract class Controlador {
-    private final String operacao; //String utilizada para identificar qual operação vai ser executada
-    private int passo; //Variavel responsável por determinar passo a ser executado dentro do switch do controlador
-    private int passosTotal; //variavel que recebe a quantidade de passos existente no controlador
-
+    // String utilizada para identificar qual operação vai ser executada.
+    private final String operacao;
+    /* Variavel responsável por determinar passo a ser executado 
+    dentro do switch do controlador. */ 
+    private int passo;
+    // Variavel que recebe a quantidade de passos existente no controlador. 
+    private int passosTotal; 
     public Controlador(String operacao, int passosTotal) {
         this.operacao = operacao;
         this.passo = 1;
@@ -30,8 +33,10 @@ public abstract class Controlador {
         return passosTotal;
     }
 
-    public abstract List<String> chat(String mensagemRecebida) throws IOException; //Função responsavél por executar a operação
-    protected abstract String finalizarOperacao(); //Função utilizada para confirmar operação quando necessario
-    public abstract void reset(); //Função utilizada para retonar o controlador ao estado inicial
-
+    // Função responsavél por executar a operação.
+    public abstract List<String> chat(String mensagemRecebida) throws IOException;
+    // Função utilizada para confirmar operação quando necessario. 
+    protected abstract String finalizarOperacao();
+    //Função utilizada para retonar o controlador ao estado inicial. 
+    public abstract void reset(); 
 }

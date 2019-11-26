@@ -17,9 +17,11 @@ public class ControladorMovimentarBem extends Controlador {
 
     @Override
     public List<String> chat(String mensagemRecebida) throws IOException {
+        
         List<Bem> bens = aux.listaBens();
         List<Localizacao> localizacoes = aux.listaLocalizacoes();
         List<String> mensagem = new ArrayList<String>();
+        
         switch (getPasso()) {
             case 1:
                 mensagem.add("Qual é o código do bem a ser movido?");
@@ -89,7 +91,7 @@ public class ControladorMovimentarBem extends Controlador {
                 else{
                     mensagem.add("Resposta inválida.");
                 }
-                break;
+            break;
         }
         return mensagem;
     }

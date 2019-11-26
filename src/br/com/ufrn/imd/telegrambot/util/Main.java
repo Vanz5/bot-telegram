@@ -12,25 +12,26 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        //TOKEN - 828843603:AAFH1uGcYykndT--HkDv9iJv16x11TNUDIc
-        //Nome: Patrimonio bot username:patrimoniolp2_bot
+        // TOKEN - 828843603:AAFH1uGcYykndT--HkDv9iJv16x11TNUDIc
+        // Nome: Patrimonio bot username:patrimoniolp2_bot
 
-        //inicialização do Bot
+        // Inicialização do Bot
         TelegramBot bot = new TelegramBot("828843603:AAFH1uGcYykndT--HkDv9iJv16x11TNUDIc");
-        //objeto responsável por receber as mensagens
+        // Objeto responsável por receber as mensagens
         GetUpdatesResponse updatesResponse;
-        //objeto responsável por gerenciar o envio de respostas
+        // Objeto responsável por gerenciar o envio de respostas
         SendResponse sendResponse = null;
-        //objeto responsável por gerenciar o envio de ações do chat
+        // Objeto responsável por gerenciar o envio de ações do chat
         BaseResponse baseResponse;
-        //controle de off-set, isto é, a partir deste ID, serão lidas as mensagens pendentes na fila
+        // Controle de off-set, isto é, a partir deste ID, serão lidas as mensagens pendentes na fila
         int m = 0;
 
-        //Controladores
+        // Controladores
         List<String> mensagens = new ArrayList<String>();
         Controlador operacaoAtual = null;
         List<Controlador> operacoes = new ArrayList<Controlador>();
-        //inicializando todos os controladores
+        
+        // Inicializando todos os controladores
         operacoes.add(new ControladorCadastroLocalizacao());
         operacoes.add(new ControladorCadastroCategoria());
         operacoes.add(new ControladorCadastroBem());
@@ -47,28 +48,27 @@ public class Main {
         operacoes.add(new ControladorApagarLocalizacao());
         operacoes.add(new ControladorApagarCategoria());
 
-        //loop infinito (pode ser alterado por algum timer de intervalo curto)
+        // Loop infinito (pode ser alterado por algum timer de intervalo curto)
         while (true){
-            //executa comando no Telegram para obter as mensagens pendentes a partir de um off-set (limite inicial)
+            // Executa comando no Telegram para obter as mensagens pendentes a partir de um off-set (limite inicial)
             updatesResponse =  bot.execute(new GetUpdates().limit(100).offset(m));
-            //lista de mensagens
+            // Lista de mensagens
             List<Update> updates = updatesResponse.updates();
-            //análise de cada ação da mensagem
+            // Análise de cada ação da mensagem
             for (Update update : updates) {
-                //atualização do off-set
+                // Atualização do off-set
                 m = update.updateId()+1;
                 System.out.println("Recebendo mensagem:"+ update.message().text());
-                //envio de "Escrevendo" antes de enviar a resposta
+                // Envio de "Escrevendo" antes de enviar a resposta
                 baseResponse = bot.execute(new SendChatAction(update.message().chat().id(), ChatAction.typing.name()));
-                //verificação de ação de chat foi enviada com sucesso
+                // Verificação de ação de chat foi enviada com sucesso
                 System.out.println("Resposta de Chat Action Enviada?" + baseResponse.isOk());
 
-                //Tratamento de mensagens do chat
-
-                if(operacaoAtual == null){ //Enquanto não estiver dentro de uma operação o bot procura a mensagem recebida no chat na lista de comandos
+                /* *** Tratamento de mensagens do chat *** */
+                if(operacaoAtual == null){ // Enquanto não estiver dentro de uma operação o bot procura a mensagem recebida no chat na lista de comandos
                     for(Controlador controlador: operacoes){
                         if(controlador.getOperacao().equals(update.message().text())){
-                            operacaoAtual = controlador; //Recebe a operação ao receber o nome da operação em tela
+                            operacaoAtual = controlador; // Recebe a operação ao receber o nome da operação em tela
                             break;
                         }
                     }
@@ -76,7 +76,7 @@ public class Main {
                         mensagens = operacaoAtual.chat(update.message().text());
                     }
                     else{
-                        if(update.message().text().equals("/ajuda")) { //Comando para mostrar as operações disponiveis no chat
+                        if(update.message().text().equals("/ajuda")) { // Comando para mostrar as operações disponiveis no chat
                             mensagens.add("Os comandos disponíveis são:\n /addlocalizacao - Cadastrar localização.\n /addcategoria - Cadastrar categoria." +
                                     "\n /addbem - Cadastrar bem.\n /listarlocalizacao - Listar localizações cadastradas. " +
                                     "\n /listarcategoria - Listar categorias cadastradas.\n /listarbem - Listar bens cadastrados em uma determinada localização."+
@@ -87,16 +87,16 @@ public class Main {
                                     "\n /apagarbem - Remover bem do cadastro.\n /movimentarbem - Modificar a localização de um bem." +
                                     "\n /apagarlocalizacao - Remover localização do cadastro.\n /apagarcategoria - Remover categoria do cadastro.");
                         }
-                        else { //Caso a mensagem não seja um dos comandos possiveis, mostrar essa mensagem no chat
+                        else { // Caso a mensagem não seja um dos comandos possiveis, mostrar essa mensagem no chat
                             mensagens.add("Não consigo realizar essa operação.\n\nPara conferir as operações disponíveis, utilize o comando /ajuda.");
                         }
                     }
                 }
                 else{
-                    if(update.message().text().equals("/cancelar")){ //Comando para sair de dentro de uma operação
+                    if(update.message().text().equals("/cancelar")){ // Comando para sair de dentro de uma operação
                         mensagens.add("A operação foi cancelada.");
-                        operacaoAtual.reset(); //O controlador é resetado para evitar conflito em reuso
-                        operacaoAtual = null; //Removendo a operação da variavel para  permitir inicio de outra operação
+                        operacaoAtual.reset(); // O controlador é resetado para evitar conflito em reuso
+                        operacaoAtual = null; // Removendo a operação da variavel para  permitir inicio de outra operação
                     }
                     else{
                         if(update.message().text().charAt(0) == '/'){ //Mensagem quando o usuario tentar iniciar uma operação quando já estiver dentro de uma outra operação
@@ -105,18 +105,18 @@ public class Main {
                         else{
                             mensagens = operacaoAtual.chat(update.message().text()); //Local onde ocorre a troca de mensagens com o controlador
                             if(operacaoAtual.getPasso() == operacaoAtual.getPassosTotal() + 1){
-                                operacaoAtual.reset(); //O controlador é resetado para evitar conflito em reuso
-                                operacaoAtual = null; //Removendo a operação da variavel para  permitir inicio de outra operação
+                                operacaoAtual.reset(); // O controlador é resetado para evitar conflito em reuso
+                                operacaoAtual = null; // Removendo a operação da variavel para  permitir inicio de outra operação
                             }
                         }
                     }
                 }
 
                 for(String mensagem: mensagens){
-                    //envio da mensagem de resposta
+                    // Envio da mensagem de resposta
                     sendResponse = bot.execute(new SendMessage(update.message().chat().id(), mensagem));
                 }
-                //verificação de mensagem enviada com sucesso
+                // Verificação de mensagem enviada com sucesso
                 System.out.println("Mensagem Enviada?" + sendResponse.isOk());
                 mensagens.clear();
             }

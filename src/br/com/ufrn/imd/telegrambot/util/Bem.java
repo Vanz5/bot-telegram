@@ -1,7 +1,7 @@
 package br.com.ufrn.imd.telegrambot.util;
 
 public class Bem {
-    private String codigo; //inicialmente foi pensado como INTEIRO, mas como códigos de itens de patrimônio normalmente são misturas de números e letras, foi modificado para String
+    private String codigo; // Inicialmente foi pensado como INTEIRO, mas como códigos de itens de patrimônio normalmente são misturas de números e letras, foi modificado para String
     private String nome;
     private String descricao;
     private Localizacao localizacao;

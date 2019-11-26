@@ -1,11 +1,8 @@
 # Bot Patrimônio Telegram
-  Projeto de sistema de patrimônio que tem a função de cadastrar os bens de uma determinada empresa e mantê-los atualizados quanto 
-  a sua descrição, localização e número de registro
+  > Projeto de sistema de patrimônio que tem a função de cadastrar os bens de uma determinada empresa e mantê-los atualizados quanto a sua descrição, localização e número de registro
 
 # Compilação:
-  Para executar o programa é aconselhado importar o projeto com a IDE intelliJ idea, lembrando q é necessario conferir que 
-  foram importadas as bibliotecas presentes na pasta lib, caso não estejam presentes basta clicar com botão direito do mouse 
-  e clicar na opção ADD library no menu.Feito isso basta executar o main e iniciar uma chat com o usuário: 'patrimoniolp2_bot' no telegram.
+  > Para executar o programa é aconselhado importar o projeto com a IDE intelliJ idea, lembrando q é necessario conferir que foram importadas as bibliotecas presentes na pasta lib, caso não estejam presentes basta clicar com botão direito do mouse e clicar na opção ADD library no menu.Feito isso basta executar o main e iniciar uma chat com o usuário: 'patrimoniolp2_bot' no telegram.
   
 ## Colaboradores
 <table>
@@ -16,7 +13,7 @@
         <br />
         <sub><b>Nátaly Enne</b></sub>
       </a><br />
-      <a href="https://github.com/nataly-enne/router/commits?author=nataly-enne" title="Code">💻</a>
+      <a href="https://github.com/nataly-enne/Bot/commits?author=nataly-enne" title="Code">💻</a>
     </td>
     <td align="center">
       <a href="https://github.com/Vanz5">
@@ -24,7 +21,7 @@
         <br />
         <sub><b>Van Allem</b></sub>
       </a><br />
-      <a href="https://github.com/nataly-enne/router/commits?author=Vanz5" title="Code">💻</a>
+      <a href="https://github.com/nataly-enne/Bot/commits?author=Vanz5" title="Code">💻</a>
     </td>
     <td align="center">
       <a href="https://github.com/ilikemiojo">
@@ -32,7 +29,7 @@
         <br />
         <sub><b>Maurício Ramalho</b></sub>
       </a><br />
-      <a href="https://github.com/nataly-enne/router/commits?author=ilikemiojo" title="Code">💻</a>
+      <a href="https://github.com/nataly-enne/Bot/commits?author=ilikemiojo" title="Code">💻</a>
     </td>
   </tr>
 </table>

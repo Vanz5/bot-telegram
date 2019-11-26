@@ -16,8 +16,10 @@ public class ControladorApagarBem extends Controlador {
     }
     @Override
     public List<String> chat(String mensagemRecebida) throws IOException {
+        
         List<Bem> bens = aux.listaBens();
         List<String> mensagem = new ArrayList<String>();
+        
         switch (getPasso()){
             case 1:
                 mensagem.add("Qual é o código do bem a ser excluído?");
@@ -41,14 +43,14 @@ public class ControladorApagarBem extends Controlador {
                 break;
             case 4:
                 if(mensagemRecebida.toLowerCase().equals("s")){
-                    //Removendo bem selecionado da lista de bens
+                    // Removendo bem selecionado da lista de bens.
                     bens = aux.removerBem(bens, bem.getCodigo());
-                    //Apagando os dados do arquivo
+                    // Apagando os dados do arquivo.
                     PrintWriter writer = new PrintWriter("bem.txt");
                     writer.print("");
                     writer.close();
 
-                    //Reescrevendo dados do arquivo com a lista de bens atualizada
+                    // Reescrevendo dados do arquivo com a lista de bens atualizada.
                     BufferedWriter file = new BufferedWriter(new FileWriter("bem.txt",true));
                     for(Bem x : bens){
                         file.write(x.getCodigo() + "\n" + x.getNome() + "\n" + x.getDescricao() + "\n"

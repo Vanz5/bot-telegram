@@ -39,7 +39,7 @@ public class ControladorApagarLocalizacao extends Controlador{
                         if(x.getLocalizacao().getNome().equalsIgnoreCase(localizacao.getNome())){
                             mensagem.add("A localização inserida ainda tem bens associados, antes de apagar uma localização" +
                                     " é necessário remover ou movimentar todos os seus bens.");
-                            //TODO - tratar situação em que mesmo recebendo essa msg o usuario continua no fluxo do controlador normalmente
+                            // TODO - tratar situação em que mesmo recebendo essa msg o usuario continua no fluxo do controlador normalmente
                             break;
                         }
                     }
@@ -52,14 +52,14 @@ public class ControladorApagarLocalizacao extends Controlador{
                 break;
             case 4:
                 if(mensagemRecebida.toLowerCase().equals("s")){
-                    //Removendo localização selecionada da lista de localizações
+                    // Removendo localização selecionada da lista de localizações.
                     localizacoes = aux.removerLocalizacao(localizacoes, localizacao.getNome());
-                    //Apagando os dados do arquivo
+                    // Apagando os dados do arquivo.
                     PrintWriter writer = new PrintWriter("localizacao.txt");
                     writer.print("");
                     writer.close();
 
-                    //Reescrevendo dados do arquivo com a lista de bens atualizada
+                    // Reescrevendo dados do arquivo com a lista de bens atualizada.
                     BufferedWriter file = new BufferedWriter(new FileWriter("localizacao.txt",true));
                     for(Localizacao x : localizacoes){
                         file.write(x.getNome() + "\n" + x.getDescricao() + "\n------");

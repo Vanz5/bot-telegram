@@ -53,8 +53,7 @@ public class ControladorGerarRelatorioArquivo extends Controlador {
                 file.close();
                 mensagem.add("O relatório foi gerado no arquivo: 'relatorio"+ dtfArquivo.format(data) + ".txt'");
                 incrementarPasso();
-                break;
-
+            break;
         }
         return mensagem;
     }

@@ -26,11 +26,11 @@ public class ControladorBuscarBemCodigo extends Controlador {
                 String codigo = mensagemRecebida;
                 Bem procurado = aux.buscarBemCodigo(bens,codigo);
 
-                if(procurado == null){ // Caso o código não for encontrado
+                if(procurado == null){ // Caso o código não for encontrado:
                     mensagem.add("Não foi possível encontrar o código inserido.\nTente novamente ou escreva '/cancelar' para finalizar essa operação.");
                     break;
                 }
-                mensagem.add(procurado.toString()); //Imprime no chat o bem com o código inserido
+                mensagem.add(procurado.toString()); // Imprime no chat o BEM com o código inserido.
                 incrementarPasso();
                 break;
             default:

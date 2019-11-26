@@ -8,7 +8,9 @@ import java.util.*;
 public class FuncoesAuxiliares {
 
     public List<Localizacao> listaLocalizacoes() throws IOException {
+        
         int numLinha = 1;
+        
         List<Localizacao> localizacoes = new ArrayList<>();
         Localizacao atual = new Localizacao();
 

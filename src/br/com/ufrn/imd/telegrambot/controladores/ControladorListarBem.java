@@ -18,30 +18,32 @@ public class ControladorListarBem extends Controlador {
 
     @Override
     public List<String> chat(String mensagemRecebida) throws IOException {
-        List<Bem> bens = aux.listaBens(); //Lista com os bens listadas em 'bem.txt'
-        List<Localizacao> localizacoes = aux.listaLocalizacoes(); //Lista com as looalizações listadas em 'localizacao.txt'
+        
+        List<Bem> bens = aux.listaBens(); // Lista com os bens listadas em 'bem.txt'.
+        List<Localizacao> localizacoes = aux.listaLocalizacoes(); // Lista com as looalizações listadas em 'localizacao.txt'.
         List<String> mensagem = new ArrayList<String>();
+        
         switch (getPasso()){
             case 1:
                 mensagem.add("De qual das localizações abaixo eu devo listar os bens?");
                 List<String> nomesLocalizacoes = aux.ImprimirNomeLocalizacoes(localizacoes);
-                for(String x : nomesLocalizacoes){ //Imprime no chat o nome das localizações cadastradas
+                for(String x : nomesLocalizacoes){ // Imprime no chat o nome das localizações cadastradas.
                     mensagem.add(x);
                 }
                 incrementarPasso();
                 break;
             case 2:
                 String local = mensagemRecebida;
-                Localizacao localizacao = aux.buscaLocalizacao(localizacoes,local); //Procurar localização inserida nas localizações cadastradas
+                Localizacao localizacao = aux.buscaLocalizacao(localizacoes,local); // Procurar localização inserida nas localizações cadastradas.
                 if (localizacao == null){
                     mensagem.add("A localização informada não foi encontrada no sistema, para cadastrar uma localização, " +
                             "primeiro insira '/cancelar' para sair desta operação e '/addlocalizacao' para iniciar o " +
                             "cadastro da localização.");
                 }
                 else {
-                    List<Bem> encontrados = aux.buscarBemLocalizacao(bens,local); //Gera uma lista com os bens da localização selecionada
+                    List<Bem> encontrados = aux.buscarBemLocalizacao(bens,local); // Gera uma lista com os bens da localização selecionada.
 
-                    if(encontrados.isEmpty()){ //Quando a lista não possui nenhum bem
+                    if(encontrados.isEmpty()){ // Quando a lista não possui nenhum bem.
                         mensagem.add("Não existe nenhum bem nesta localização, insira outra localização ou '/cancelar' para sair desta operação.");
                     }
                     else{

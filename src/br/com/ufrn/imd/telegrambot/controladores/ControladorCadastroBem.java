@@ -19,10 +19,12 @@ public class ControladorCadastroBem extends Controlador {
 
     @Override
     public List<String> chat(String mensagemRecebida) throws IOException {
-        List<Bem> bens = aux.listaBens(); //Lista com os bens listadas em 'bem.txt'
-        List<Localizacao> localizacoes = aux.listaLocalizacoes(); //Lista com as loocalizações listadas em 'localizacao.txt'
-        List<Categoria> categorias = aux.listaCategorias(); //Lista com as categorias listadas em 'categoria.txt'
+        
+        List<Bem> bens = aux.listaBens(); // Lista com os bens listadas em 'bem.txt'.
+        List<Localizacao> localizacoes = aux.listaLocalizacoes(); // Lista com as loocalizações listadas em 'localizacao.txt'.
+        List<Categoria> categorias = aux.listaCategorias(); // Lista com as categorias listadas em 'categoria.txt'.
         List<String> mensagem = new ArrayList<String>();
+        
         switch (getPasso()){
             case 1:
                 mensagem.add("Qual é o código do bem a ser cadastrado?");
