@@ -5,7 +5,7 @@
 # Compilação:
   Para executar o programa é aconselhado importar o projeto com a IDE intelliJ idea, lembrando q é necessario conferir que 
   foram importadas as bibliotecas presentes na pasta lib, caso não estejam presentes basta clicar com botão direito do mouse 
-  e clicar na opção ADD libreary no menu.Feito isso basta executar o main e iniciar uma chat com o usuário: 'patrimoniolp2_bot' no telegram.
+  e clicar na opção ADD library no menu.Feito isso basta executar o main e iniciar uma chat com o usuário: 'patrimoniolp2_bot' no telegram.
   
 ## Colaboradores
 <table>
