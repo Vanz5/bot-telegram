@@ -1,0 +1,32 @@
+0
+Piloto
+Item para escrita em quadro
+A101
+Material Didático
+------
+T101
+Monitor
+Dispositivo de saída do computador, responsável pela interface gráfica mostrada ao usuário
+A101
+Computadores
+------
+TM001
+testemovimentar
+item criado para teste da operação movimentar bem
+testemovimentar
+TesteApagar
+------
+TA001
+testecadastrar
+teste addbem
+TesteCadastro
+TesteCadastrar
+------
+Tbusca
+testebusca
+teste de busca
+TesteCadastro
+TesteCadastrar
+------
+
+

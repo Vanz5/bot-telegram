@@ -1,0 +1,33 @@
+Relatório criado em: 24/11/2019 21:10:54
+Listagem de bens agrupados por localização:
+ Listagem de bens agrupados por categoria:
+Código: T101
+Nome: Monitor
+Descrição: Dispositivo de saída do computador, responsável pela interface gráfica mostrada ao usuário
+Localização: A101
+Categoria: Computadores
+
+------
+Código: 0
+Nome: Piloto
+Descrição: Item para escrita em quadro
+Localização: A101
+Categoria: Material Didático
+
+------
+ Listagem de bens agrupados por nome:
+Código: T101
+Nome: Monitor
+Descrição: Dispositivo de saída do computador, responsável pela interface gráfica mostrada ao usuário
+Localização: A101
+Categoria: Computadores
+
+------
+Código: 0
+Nome: Piloto
+Descrição: Item para escrita em quadro
+Localização: A101
+Categoria: Material Didático
+
+------
+Relatório finalizado

@@ -1,0 +1,15 @@
+A101
+Sala localizada no primeiro andar do bloco A
+------
+B206
+Sala localizada no segundo andar do bloco B
+------
+TesteCadastro
+Teste do addlocalização
+------
+teste002
+teste add
+------
+testeapagar
+teste apagar
+------
