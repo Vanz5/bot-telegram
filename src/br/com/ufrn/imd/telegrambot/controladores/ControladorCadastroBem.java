@@ -79,7 +79,7 @@ public class ControladorCadastroBem extends Controlador {
                     mensagem = chat(mensagemRecebida);
                     break;
                 }
-            case 9: //
+            case 9:
                 mensagem.add("Qual é a categoria desse bem?\nAbaixo estão todas categorias cadastradas");
                 List<String> nomesCategoria = aux.ImprimirNomeCategorias(categorias); //Cria uma lista com apenas os nomes das categorias presentes em 'categoria.txt'
                 for(String x : nomesCategoria){

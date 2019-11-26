@@ -21,11 +21,11 @@ public class ControladorGerarRelatorioChat extends Controlador {
         List<String> mensagem = new ArrayList<>();
         List<Bem> bens = aux.listaBens();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        LocalDateTime data = LocalDateTime.now();
+        LocalDateTime data = LocalDateTime.now(); //gerando data que vai ser impressa no relatorio
 
         switch (getPasso()){
             case 1:
-                BemLocalizacaoComparator bemLocalizacaoComparator = new BemLocalizacaoComparator();
+                BemLocalizacaoComparator bemLocalizacaoComparator = new BemLocalizacaoComparator(); //Comparators para organização pedida
                 BemCategoriaComparator bemCategoriaComparator = new BemCategoriaComparator();
                 BemNomeComparator bemNomeComparator = new BemNomeComparator();
 

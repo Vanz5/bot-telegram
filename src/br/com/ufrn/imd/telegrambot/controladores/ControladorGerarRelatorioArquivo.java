@@ -20,7 +20,7 @@ public class ControladorGerarRelatorioArquivo extends Controlador {
         List<String> mensagem = new ArrayList<>();
         List<Bem> bens = aux.listaBens();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        DateTimeFormatter dtfArquivo = DateTimeFormatter.ofPattern("ddMMyyyyHHmmss");
+        DateTimeFormatter dtfArquivo = DateTimeFormatter.ofPattern("ddMMyyyyHHmmss"); //Formato para nomear o '.txt'
         LocalDateTime data = LocalDateTime.now();
 
         switch (getPasso()){

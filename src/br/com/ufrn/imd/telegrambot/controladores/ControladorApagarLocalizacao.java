@@ -22,8 +22,11 @@ public class ControladorApagarLocalizacao extends Controlador{
         List<String> mensagem = new ArrayList<String>();
         switch (getPasso()){
             case 1:
-                mensagem.add("Qual é o nome da localização que vai ser excluida?");
-                //TODO - adicionar a lista dos nomes das localizações = no cadastro de bem
+                mensagem.add("Qual é o nome da localização que vai ser excluida?\nAbaixo estão todas localizações cadastradas");
+                List<String> nomesLocalizacoes = aux.ImprimirNomeLocalizacoes(localizacoes); //Cria uma lista com os nomes das localizações presentes em 'localizacao.txt'
+                for(String x : nomesLocalizacoes){
+                    mensagem.add(x);
+                }
                 incrementarPasso();
                 break;
             case 2:

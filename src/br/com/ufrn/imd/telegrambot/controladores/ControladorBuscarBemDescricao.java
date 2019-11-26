@@ -24,14 +24,17 @@ public class ControladorBuscarBemDescricao extends Controlador {
                 break;
             case 2:
                 String descricao = mensagemRecebida;
-                Bem procurado = buscarBemCodigo(bens,descricao);
+                Bem procurado = aux.buscaBemDescricao(bens,descricao); //TODO - alterar para uma lista de bens ja que a descrição pode ser repetida
 
                 if(procurado == null){
-                    mensagem.add("Não foi possivel encontrar a descrição inserida.\n Tente novamente ou escreva '/cancelar' para finalizar essa opração");
+                    mensagem.add("Não foi possivel encontrar a descrição inserida.\nTente novamente ou escreva '/cancelar' para finalizar essa opração");
                     break;
                 }
                 mensagem.add(procurado.toString());
                 incrementarPasso();
+                break;
+            default:
+                mensagem.add("Passo desconhecido, saindo da operação");
                 break;
         }
         return mensagem;
@@ -45,16 +48,5 @@ public class ControladorBuscarBemDescricao extends Controlador {
     @Override
     public void reset() {
         setPasso(1);
-    }
-
-    public Bem buscarBemCodigo(List<Bem> bens, String descricao){
-        Bem bem = null;
-        for(Bem x : bens){
-            if(descricao.equalsIgnoreCase(x.getDescricao())){
-                bem = x;
-                break;
-            }
-        }
-        return bem;
     }
 }

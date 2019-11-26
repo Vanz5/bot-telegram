@@ -22,8 +22,11 @@ public class ControladorApagarCategoria extends Controlador{
         List<String> mensagem = new ArrayList<String>();
         switch (getPasso()){
             case 1:
-                mensagem.add("Qual é o nome da categoria que vai ser excluida?");
-                //TODO - adicionar a lista dos nomes das categorias = no cadastro de bem
+                mensagem.add("Qual é o nome da categoria que vai ser excluida?\nAbaixo estão todas categorias cadastradas");
+                List<String> nomesCategoria = aux.ImprimirNomeCategorias(categorias); //Cria uma lista com apenas os nomes das categorias presentes em 'categoria.txt'
+                for(String x : nomesCategoria){ //TODO - modificar para mostar codigo e nome e receber codigo(que é unico) no lugar do nome
+                    mensagem.add(x);
+                }
                 incrementarPasso();
                 break;
             case 2:
@@ -33,7 +36,7 @@ public class ControladorApagarCategoria extends Controlador{
                 }
                 else {
                     for(Bem x : bens){
-                        if(x.getCategoria().getNome().equalsIgnoreCase(categoria.getNome())){ //TODO - DESCOBRIR POR QUE CARALHOS AQUI TA DANDO NULLPOINTEREXCEPTION (TA IGUAL AO APAGARLOCALIZAÇÃO)
+                        if(x.getCategoria().getNome().equalsIgnoreCase(categoria.getNome())){
                             mensagem.add("A categoria inserida ainda tem bens associados, antes de apagar uma categoria" +
                                     " é preciso remover ou movimentar todos os seus bens");
                             break;

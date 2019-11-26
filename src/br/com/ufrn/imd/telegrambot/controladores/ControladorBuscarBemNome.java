@@ -24,10 +24,10 @@ public class ControladorBuscarBemNome extends Controlador {
                 break;
             case 2:
                 String nome = mensagemRecebida;
-                Bem procurado = aux.buscarBemNome(bens,nome);
+                Bem procurado = aux.buscarBemNome(bens,nome); //TODO - alterar para uma lista de bens ja que o nome pode ser repetido
 
                 if(procurado == null){
-                    mensagem.add("Não foi possivel encontrar o nome inserido.\n Tente novamente ou escreva '/cancelar' para finalizar essa opração");
+                    mensagem.add("Não foi possivel encontrar o nome inserido.\nTente novamente ou escreva '/cancelar' para finalizar essa operação");
                     break;
                 }
                 mensagem.add(procurado.toString());
