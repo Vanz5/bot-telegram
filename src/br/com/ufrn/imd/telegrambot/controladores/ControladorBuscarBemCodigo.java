@@ -27,7 +27,7 @@ public class ControladorBuscarBemCodigo extends Controlador {
                 Bem procurado = aux.buscarBemCodigo(bens,codigo);
 
                 if(procurado == null){
-                    mensagem.add("Não foi possivel encontrar o código inserido.\n Tente novamente ou escreva '/cancelar' para finalizar essa opração");
+                    mensagem.add("Não foi possivel encontrar o código inserido.\nTente novamente ou escreva '/cancelar' para finalizar essa opração");
                     break;
                 }
                 mensagem.add(procurado.toString());

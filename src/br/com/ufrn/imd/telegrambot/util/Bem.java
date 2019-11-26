@@ -2,7 +2,8 @@ package br.com.ufrn.imd.telegrambot.util;
 
 public class Bem {
     private String codigo; //Inicialmente foi pensado como INTEIRO mas como código de itens de patrimonio normalmente são misturas de numeros e letras, foi modificado para String
-    private String nome, descricao;
+    private String nome;
+    private String descricao;
     private Localizacao localizacao;
     private Categoria categoria;
 
@@ -20,24 +21,28 @@ public class Bem {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
+
     public String getNome() {
         return nome;
     }
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getDescricao() {
         return descricao;
     }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
     public Localizacao getLocalizacao() {
         return localizacao;
     }
     public void setLocalizacao(Localizacao localizacao) {
         this.localizacao = localizacao;
     }
+
     public Categoria getCategoria() {
         return categoria;
     }
@@ -51,7 +56,6 @@ public class Bem {
                    + "\nDescrição: " + this.getDescricao()
                    + "\nLocalização: " + this.getLocalizacao().getNome()
                    + "\nCategoria: " + this.getCategoria().getNome() + "\n";
-
         return bem;
     }
 }

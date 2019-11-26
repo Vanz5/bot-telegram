@@ -7,6 +7,7 @@ import java.util.*;
 
 public class ControladorCadastroCategoria extends Controlador {
 
+    FuncoesAuxiliares aux = new FuncoesAuxiliares();
     Categoria categoria;
 
     public ControladorCadastroCategoria() {
@@ -16,6 +17,7 @@ public class ControladorCadastroCategoria extends Controlador {
 
     @Override
     public List<String> chat(String mensagemRecebida) throws IOException {
+        List<Categoria> categorias = aux.listaCategorias(); //Lista com as categorias listadas em 'categoria.txt'
         List<String> mensagem = new ArrayList<String>();
         switch (getPasso()){
             case 1:
@@ -23,10 +25,17 @@ public class ControladorCadastroCategoria extends Controlador {
                 incrementarPasso();
                 break;
             case 2:
-                //TODO - Tratamento para conferir se o código está livre para uso ver o que foi feito em cadastar bem
-                categoria.setCodigo(mensagemRecebida);
-                incrementarPasso();
-                break;
+                String codigo = (mensagemRecebida);
+                Categoria encontrada = aux.buscarCategoriaCodigo(categorias,codigo);
+                if(encontrada == null){ //Tratamento para checar se o código já esta sendo utilizado
+                    categoria.setCodigo(codigo);
+                    incrementarPasso();
+                    mensagem = chat(mensagemRecebida);
+                    break;
+                }
+                else{
+                    mensagem.add("O codigo informado já está sendo utilizado para a categoria \n"+ encontrada.toString()+"\n Informe um código diferente");
+                }
             case 3:
                 mensagem.add("Qual é o nome da categoria que vai ser cadastrada?");
                 incrementarPasso();
@@ -34,6 +43,7 @@ public class ControladorCadastroCategoria extends Controlador {
             case 4:
                 categoria.setNome(mensagemRecebida);
                 incrementarPasso();
+                mensagem = chat(mensagemRecebida);
                 break;
             case 5:
                 mensagem.add("Escreva uma pequena descrição dessa categoria.");
@@ -42,6 +52,7 @@ public class ControladorCadastroCategoria extends Controlador {
             case 6:
                 categoria.setDescricao(mensagemRecebida);
                 incrementarPasso();
+                mensagem = chat(mensagemRecebida);
                 break;
             case 7:
                 mensagem.add(finalizarOperacao());
@@ -57,17 +68,18 @@ public class ControladorCadastroCategoria extends Controlador {
 
                     mensagem.add("Categoria cadastrada com sucesso!");
                     incrementarPasso();
+                    break;
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
                     mensagem.add("Operação cancelada");
                     incrementarPasso();
+                    break;
                 }
                 else{
                     mensagem.add("Resposta inválida");
                 }
-                break;
             default:
-                mensagem.add("Passo desconhecido");
+                mensagem.add("Passo desconhecido, saindo da operação");
                 break;
         }
         return mensagem;

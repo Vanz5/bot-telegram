@@ -3,7 +3,6 @@ package br.com.ufrn.imd.telegrambot.controladores;
 import br.com.ufrn.imd.telegrambot.util.Categoria;
 
 import java.io.IOException;
-import java.nio.file.*;
 import java.util.*;
 
 public class ControladorListarCategoria extends Controlador {
@@ -12,7 +11,7 @@ public class ControladorListarCategoria extends Controlador {
     FuncoesAuxiliares aux = new FuncoesAuxiliares();
 
     public ControladorListarCategoria() {
-        super("/listarcategoria", 2);
+        super("/listarcategoria", 1);
         categoria = new Categoria();
     }
 
@@ -29,11 +28,12 @@ public class ControladorListarCategoria extends Controlador {
                 else {
                     mensagem.add("Categorias cadastradas:\n");
                     for(Categoria x : categorias) { mensagem.add(x.toString()); }
+                    mensagem.add(finalizarOperacao());
                     incrementarPasso();
                 }
                 break;
             default:
-                mensagem.add("Passo desconhecido");
+                mensagem.add("Passo desconhecido, saindo da operação");
                 break;
         }
         return mensagem;
@@ -41,15 +41,11 @@ public class ControladorListarCategoria extends Controlador {
 
     @Override
     protected String finalizarOperacao() {
-        return "";
+        return "Fim da lista";
     }
 
     @Override
     public void reset() {
         setPasso(1);
-    }
-
-    public String imprimir(String arquivo) throws IOException {
-        return new String(Files.readAllBytes(Paths.get(arquivo)));
     }
 }

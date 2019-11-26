@@ -19,9 +19,9 @@ public class ControladorCadastroBem extends Controlador {
 
     @Override
     public List<String> chat(String mensagemRecebida) throws IOException {
-        List<Bem> bens = aux.listaBens();
-        List<Localizacao> localizacoes = aux.listaLocalizacoes();
-        List<Categoria> categorias = aux.listaCategorias();
+        List<Bem> bens = aux.listaBens(); //Lista com os bens listadas em 'bem.txt'
+        List<Localizacao> localizacoes = aux.listaLocalizacoes(); //Lista com as loocalizações listadas em 'localizacao.txt'
+        List<Categoria> categorias = aux.listaCategorias(); //Lista com as categorias listadas em 'categoria.txt'
         List<String> mensagem = new ArrayList<String>();
         switch (getPasso()){
             case 1:
@@ -30,17 +30,16 @@ public class ControladorCadastroBem extends Controlador {
                 break;
             case 2:
                 String codigo = (mensagemRecebida);
-                ControladorBuscarBemCodigo buscarBemCodigo = new ControladorBuscarBemCodigo();
                 Bem encontrado = aux.buscarBemCodigo(bens,codigo);
-                if(encontrado == null){
+                if(encontrado == null){ //Tratamento para checar se o código já esta sendo utilizado
                     bem.setCodigo(codigo);
                     incrementarPasso();
                     mensagem = chat(mensagemRecebida);
+                    break;
                 }
                 else{
                     mensagem.add("O codigo informado já está sendo utilizado para o bem: "+ encontrado.getNome()+"\n Informe um código diferente");
                 }
-                break;
             case 3:
                 mensagem.add("Qual é o nome do bem que vai ser cadastrado?");
                 incrementarPasso();
@@ -48,6 +47,7 @@ public class ControladorCadastroBem extends Controlador {
             case 4:
                 bem.setNome(mensagemRecebida);
                 incrementarPasso();
+                mensagem = chat(mensagemRecebida);
                 break;
             case 5:
                 mensagem.add("Escreva uma pequena descrição desse bem.");
@@ -56,16 +56,17 @@ public class ControladorCadastroBem extends Controlador {
             case 6:
                 bem.setDescricao(mensagemRecebida);
                 incrementarPasso();
+                mensagem = chat(mensagemRecebida);
                 break;
             case 7:
                 mensagem.add("Qual é a localização desse bem?\nAbaixo estão todas localizações cadastradas");
-                List<String> nomesLocalizacoes = aux.ImprimirNomeLocalizacoes(localizacoes);
+                List<String> nomesLocalizacoes = aux.ImprimirNomeLocalizacoes(localizacoes); //Cria uma lista com os nomes das localizações presentes em 'localizacao.txt'
                 for(String x : nomesLocalizacoes){
                     mensagem.add(x);
                 }
                 incrementarPasso();
                 break;
-            case 8:
+            case 8: //Confere se a localização informada ja foi cadastrada anteriormente
                 Localizacao localizacao = aux.buscaLocalizacao(localizacoes,mensagemRecebida);
                 if (localizacao == null){
                     mensagem.add("A localização informada não foi encontrada no sistema, para cadastrar uma localização " +
@@ -75,18 +76,18 @@ public class ControladorCadastroBem extends Controlador {
                 else {
                     bem.setLocalizacao(localizacao);
                     incrementarPasso();
-                    mensagem = chat(mensagemRecebida); //TODO - descobrir o que essa linha faz
+                    mensagem = chat(mensagemRecebida);
+                    break;
                 }
-                break;
-            case 9:
+            case 9: //
                 mensagem.add("Qual é a categoria desse bem?\nAbaixo estão todas categorias cadastradas");
-                List<String> nomesCategoria = aux.ImprimirNomeCategorias(categorias);
+                List<String> nomesCategoria = aux.ImprimirNomeCategorias(categorias); //Cria uma lista com apenas os nomes das categorias presentes em 'categoria.txt'
                 for(String x : nomesCategoria){
                     mensagem.add(x);
                 }
                 incrementarPasso();
                 break;
-            case 10:
+            case 10: //Confere se a categoria informada ja foi cadastrada anteriormente
                 Categoria categoria = aux.buscaCategoria(categorias,mensagemRecebida);
                 if(categoria == null){
                     mensagem.add("A categoria informada não foi encontrada no sistema, para cadastrar uma nova categoria" +
@@ -97,8 +98,8 @@ public class ControladorCadastroBem extends Controlador {
                     bem.setCategoria(categoria);
                     incrementarPasso();
                     mensagem = chat(mensagemRecebida);
+                    break;
                 }
-                break;
             case 11:
                 mensagem.add(finalizarOperacao());
                 incrementarPasso();
@@ -107,23 +108,25 @@ public class ControladorCadastroBem extends Controlador {
                 if(mensagemRecebida.toLowerCase().equals("s")){
                     //Armazenando em arquivo
                     BufferedWriter file = new BufferedWriter(new FileWriter("bem.txt",true));
-                    file.write(bem.getCodigo() + "\n" + bem.getNome() + "\n" + bem.getDescricao() + "\n" + bem.getLocalizacao().getNome() + "\n" + bem.getCategoria().getNome() + "\n------");
+                    file.write(bem.getCodigo() + "\n" + bem.getNome() + "\n" + bem.getDescricao() + "\n" + bem.getLocalizacao().getNome() +
+                            "\n" + bem.getCategoria().getNome() + "\n------");
                     file.newLine();
                     file.close();
 
                     mensagem.add("Bem cadastrado com sucesso!");
                     incrementarPasso();
+                    break;
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
                     mensagem.add("Operação cancelada");
                     incrementarPasso();
+                    break;
                 }
                 else{
                     mensagem.add("Resposta inválida");
                 }
-                break;
             default:
-                mensagem.add("Passo desconhecido");
+                mensagem.add("Passo desconhecido, saindo da operação");
                 break;
         }
         return mensagem;

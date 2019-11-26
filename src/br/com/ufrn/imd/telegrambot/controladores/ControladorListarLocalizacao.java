@@ -3,7 +3,6 @@ package br.com.ufrn.imd.telegrambot.controladores;
 import br.com.ufrn.imd.telegrambot.util.Localizacao;
 
 import java.io.IOException;
-import java.nio.file.*;
 import java.util.*;
 
 public class ControladorListarLocalizacao extends Controlador {
@@ -12,7 +11,7 @@ public class ControladorListarLocalizacao extends Controlador {
     FuncoesAuxiliares aux = new FuncoesAuxiliares();
 
     public ControladorListarLocalizacao() {
-        super("/listarlocalizacao", 2);
+        super("/listarlocalizacao", 1);
         localizacao = new Localizacao();
     }
 
@@ -23,17 +22,18 @@ public class ControladorListarLocalizacao extends Controlador {
 
         switch (getPasso()){
             case 1:
-                if(localizacoes.isEmpty()){
+                if(localizacoes.isEmpty()){ //Checa se existem localizacoes cadastradas
                     mensagem.add("Não existem localizações cadastradas, insira '/cancelar' para sair dessa operação");
                 }
-                else {
+                else { //Mostra no chat todas as localizações cadastradas em 'localizacoes.txt'
                     mensagem.add("Localizações cadastradas:\n");
                     for(Localizacao x : localizacoes) { mensagem.add(x.toString()); }
+                    mensagem.add(finalizarOperacao());
                     incrementarPasso();
                 }
                 break;
             default:
-                mensagem.add("Passo desconhecido");
+                mensagem.add("Passo desconhecido, saindo da operação");
                 break;
         }
         return mensagem;
@@ -41,15 +41,11 @@ public class ControladorListarLocalizacao extends Controlador {
 
     @Override
     protected String finalizarOperacao() {
-        return "";
+        return "Fim da lista";
     }
 
     @Override
     public void reset() {
         setPasso(1);
-    }
-
-    public String imprimir(String arquivo) throws IOException {
-        return new String(Files.readAllBytes(Paths.get(arquivo)));
     }
 }

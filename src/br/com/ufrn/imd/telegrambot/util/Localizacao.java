@@ -12,7 +12,6 @@ public class Localizacao {
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -20,7 +19,6 @@ public class Localizacao {
     public String getDescricao() {
         return descricao;
     }
-
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
@@ -28,7 +26,6 @@ public class Localizacao {
     public String toString() {
         String localizacao = "Nome: " + this.getNome()
                            + "\nDescrição: " + this.getDescricao() + "\n";
-
         return localizacao;
     }
 

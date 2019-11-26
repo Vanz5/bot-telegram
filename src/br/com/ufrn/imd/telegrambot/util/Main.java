@@ -30,7 +30,7 @@ public class Main {
         List<String> mensagens = new ArrayList<String>();
         Controlador operacaoAtual = null;
         List<Controlador> operacoes = new ArrayList<Controlador>();
-        //TODO -  Adicionar todos controladores criados no array
+        //Inicializando todos os controladores
         operacoes.add(new ControladorCadastroLocalizacao());
         operacoes.add(new ControladorCadastroCategoria());
         operacoes.add(new ControladorCadastroBem());
@@ -63,25 +63,20 @@ public class Main {
                 //verificação de ação de chat foi enviada com sucesso
                 System.out.println("Resposta de Chat Action Enviada?" + baseResponse.isOk());
 
-
-
                 //Tratamento de mensagens do chat
 
-
-
-                if(operacaoAtual == null){
+                if(operacaoAtual == null){ //Enquanto não estiver dentro de uma operação o bot procura a mensagem recebida no chat na lista de comandos
                     for(Controlador controlador: operacoes){
                         if(controlador.getOperacao().equals(update.message().text())){
-                            operacaoAtual = controlador;
+                            operacaoAtual = controlador; //Recebe a operação ao receber o nome da operação em tela
                             break;
                         }
                     }
-
                     if(operacaoAtual != null){
                         mensagens = operacaoAtual.chat(update.message().text());
                     }
                     else{
-                        if(update.message().text().equals("/ajuda")) {
+                        if(update.message().text().equals("/ajuda")) { //Comando para mostrar as operações disponiveis no chat
                             mensagens.add("Os comandos disponíveis são:\n /addlocalizacao - Cadastrar localização.\n /addcategoria - Cadastrar categoria." +
                                     "\n /addbem - Cadastrar bem.\n /listarlocalizacao - Listar localizações cadastradas. " +
                                     "\n /listarcategoria - Listar categorias cadastradas.\n /listarbem - Listar bens cadastrados em uma localização."+
@@ -91,30 +86,27 @@ public class Main {
                                     "\n /relatoriochat - Gerar relatório nesse chat \n /relatorioarquivo - Gerar relatorio em arquivo" +
                                     "\n /apagarbem - remover bem do cadastro \n /movimentarbem - Modifica a localização de um bem" +
                                     "\n /apagarlocalizacao - remover localização do cadastro\n /apagarcategoria - remover categoria do cadastro");
-                            //TODO - adicionar comandos em ajuda
                         }
-                        else {
+                        else { //Caso a mensagem não seja um dos comandos possiveis, mostrar essa mensagem no chat
                             mensagens.add("Não consigo realizar essa operação.\n\nPara conferir as operações disponíveis, utilize o comando /ajuda.");
                         }
                     }
                 }
                 else{
-                    if(update.message().text().equals("/cancelar")){
+                    if(update.message().text().equals("/cancelar")){ //Comando para sair de dentro de uma operação
                         mensagens.add("A operação foi cancelada");
-                        operacaoAtual.reset();
-                        operacaoAtual = null;
+                        operacaoAtual.reset(); //O controlador é resetado para evitar conflito em reuso
+                        operacaoAtual = null; //Removendo a operação da variavel para  permitir inicio de outra operação
                     }
                     else{
-                        //TODO - adicionar no if um condicional pra quando isso -> '(update.message().text().equals("/ajuda")' não for verdade
-                        if(update.message().text().charAt(0) == '/'){
+                        if(update.message().text().charAt(0) == '/'){ //Mensagem quando o usuario tentar iniciar uma operação quando já estiver dentro de uma outra operação
                             mensagens.add("Para escolher outra operação é necessario que a operação atual seja cancelada através do comando /cancelar");
                         }
                         else{
-                            mensagens = operacaoAtual.chat(update.message().text());
-
-                            if(operacaoAtual.getPasso() == operacaoAtual.getPassosTotal()+1){
-                                operacaoAtual.reset();
-                                operacaoAtual = null;
+                            mensagens = operacaoAtual.chat(update.message().text()); //Local onde ocorre a troca de mensagens com o controlador
+                            if(operacaoAtual.getPasso() == operacaoAtual.getPassosTotal() + 1){
+                                operacaoAtual.reset(); //O controlador é resetado para evitar conflito em reuso
+                                operacaoAtual = null; //Removendo a operação da variavel para  permitir inicio de outra operação
                             }
                         }
                     }
@@ -126,9 +118,7 @@ public class Main {
                 }
                 //verificação de mensagem enviada com sucesso
                 System.out.println("Mensagem Enviada?" + sendResponse.isOk());
-
                 mensagens.clear();
-
             }
         }
     }

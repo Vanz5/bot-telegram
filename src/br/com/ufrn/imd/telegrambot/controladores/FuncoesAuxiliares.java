@@ -158,13 +158,24 @@ public class FuncoesAuxiliares {
     }
 
 
-        public List<Bem> buscarBemLocalizacao(List<Bem> bens, String localizacao) {
-        List<Bem> resultado = new ArrayList<>();
+    public List<Bem> buscarBemLocalizacao(List<Bem> bens, String nome) {
+        List<Bem> encontrados = new ArrayList<>();
         for (Bem x: bens) {
-            if (localizacao.equalsIgnoreCase(x.getLocalizacao().getNome())) {
-                resultado.add(x);
+            if (nome.equalsIgnoreCase(x.getLocalizacao().getNome())) {
+                encontrados.add(x);
             }
         }
-        return resultado;
+        return encontrados;
+    }
+
+    public Categoria buscarCategoriaCodigo(List<Categoria> categorias, String codigo) {
+        Categoria categoria = null;
+        for (Categoria x : categorias) {
+            if (codigo.equalsIgnoreCase(x.getCodigo())) {
+                categoria = x;
+                break;
+            }
+        }
+        return categoria;
     }
 }
