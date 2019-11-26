@@ -22,7 +22,7 @@ public class ControladorApagarCategoria extends Controlador{
         List<String> mensagem = new ArrayList<String>();
         switch (getPasso()){
             case 1:
-                mensagem.add("Qual é o nome da categoria que vai ser excluida?\nAbaixo estão todas categorias cadastradas");
+                mensagem.add("Qual é o nome da categoria a ser excluida?\nAbaixo estão todas categorias cadastradas.");
                 List<String> nomesCategoria = aux.ImprimirNomeCategorias(categorias); //Cria uma lista com apenas os nomes das categorias presentes em 'categoria.txt'
                 for(String x : nomesCategoria){ //TODO - modificar para mostar codigo e nome e receber codigo(que é unico) no lugar do nome
                     mensagem.add(x);
@@ -32,13 +32,13 @@ public class ControladorApagarCategoria extends Controlador{
             case 2:
                 categoria = aux.buscaCategoria(categorias,mensagemRecebida);
                 if (categoria == null){
-                    mensagem.add("A categoria informada não foi encontrada no sistema");
+                    mensagem.add("A categoria informada não foi encontrada no sistema.");
                 }
                 else {
                     for(Bem x : bens){
                         if(x.getCategoria().getNome().equalsIgnoreCase(categoria.getNome())){
                             mensagem.add("A categoria inserida ainda tem bens associados, antes de apagar uma categoria" +
-                                    " é preciso remover todos os seus bens");
+                                    " é necessário remover todos os seus bens.");
                             //TODO - tratar situação em que mesmo recebendo essa msg o usuario continua no fluxo do controlador normalmente
                             break;
                         }
@@ -71,15 +71,15 @@ public class ControladorApagarCategoria extends Controlador{
                     incrementarPasso();
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
-                    mensagem.add("Operação cancelada");
+                    mensagem.add("Operação cancelada.");
                     incrementarPasso();
                 }
                 else{
-                    mensagem.add("Resposta inválida");
+                    mensagem.add("Resposta inválida.");
                 }
                 break;
             default:
-                mensagem.add("Passo desconhecido");
+                mensagem.add("Passo desconhecido.");
                 break;
         }
         return mensagem;
@@ -88,7 +88,7 @@ public class ControladorApagarCategoria extends Controlador{
     @Override
     protected String finalizarOperacao() {
         String mensagem = "A categoria que você deseja apagar é: \nCódigo: "+ categoria.getCodigo() +"\nNome: " + categoria.getNome() +
-                "\nDescrição: " + categoria.getDescricao() +"\nPosso Apagar a categoria? (s/n)";
+                "\nDescrição: " + categoria.getDescricao() +"\nPosso apagar esta categoria? (s/n)";
         return mensagem;
     }
 

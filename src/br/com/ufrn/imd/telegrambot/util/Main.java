@@ -23,14 +23,14 @@ public class Main {
         SendResponse sendResponse = null;
         //objeto responsável por gerenciar o envio de ações do chat
         BaseResponse baseResponse;
-        //controle de off-set, isto é, a partir deste ID será lido as mensagens pendentes na fila
+        //controle de off-set, isto é, a partir deste ID, serão lidas as mensagens pendentes na fila
         int m = 0;
 
         //Controladores
         List<String> mensagens = new ArrayList<String>();
         Controlador operacaoAtual = null;
         List<Controlador> operacoes = new ArrayList<Controlador>();
-        //Inicializando todos os controladores
+        //inicializando todos os controladores
         operacoes.add(new ControladorCadastroLocalizacao());
         operacoes.add(new ControladorCadastroCategoria());
         operacoes.add(new ControladorCadastroBem());
@@ -47,7 +47,7 @@ public class Main {
         operacoes.add(new ControladorApagarLocalizacao());
         operacoes.add(new ControladorApagarCategoria());
 
-        //loop infinito pode ser alterado por algum timer de intervalo curto
+        //loop infinito (pode ser alterado por algum timer de intervalo curto)
         while (true){
             //executa comando no Telegram para obter as mensagens pendentes a partir de um off-set (limite inicial)
             updatesResponse =  bot.execute(new GetUpdates().limit(100).offset(m));
@@ -79,13 +79,13 @@ public class Main {
                         if(update.message().text().equals("/ajuda")) { //Comando para mostrar as operações disponiveis no chat
                             mensagens.add("Os comandos disponíveis são:\n /addlocalizacao - Cadastrar localização.\n /addcategoria - Cadastrar categoria." +
                                     "\n /addbem - Cadastrar bem.\n /listarlocalizacao - Listar localizações cadastradas. " +
-                                    "\n /listarcategoria - Listar categorias cadastradas.\n /listarbem - Listar bens cadastrados em uma localização."+
-                                    "\n /buscarbemcodigo - Procurar por determinado bem a partir de seu código" +
-                                    "\n /buscarbemdescricao - Procurar por determinado bem a partir de sua descrição" +
-                                    "\n /buscarbemnome - Procurar por determinado bem a partir de seu nome" +
-                                    "\n /relatoriochat - Gerar relatório nesse chat \n /relatorioarquivo - Gerar relatorio em arquivo" +
-                                    "\n /apagarbem - remover bem do cadastro \n /movimentarbem - Modifica a localização de um bem" +
-                                    "\n /apagarlocalizacao - remover localização do cadastro\n /apagarcategoria - remover categoria do cadastro");
+                                    "\n /listarcategoria - Listar categorias cadastradas.\n /listarbem - Listar bens cadastrados em uma determinada localização."+
+                                    "\n /buscarbemcodigo - Procurar por determinado bem a partir de seu código." +
+                                    "\n /buscarbemdescricao - Procurar por determinado bem a partir de sua descrição." +
+                                    "\n /buscarbemnome - Procurar por determinado bem a partir de seu nome." +
+                                    "\n /relatoriochat - Gerar relatório nesse chat.\n /relatorioarquivo - Gerar relatório em arquivo." +
+                                    "\n /apagarbem - Remover bem do cadastro.\n /movimentarbem - Modificar a localização de um bem." +
+                                    "\n /apagarlocalizacao - Remover localização do cadastro.\n /apagarcategoria - Remover categoria do cadastro.");
                         }
                         else { //Caso a mensagem não seja um dos comandos possiveis, mostrar essa mensagem no chat
                             mensagens.add("Não consigo realizar essa operação.\n\nPara conferir as operações disponíveis, utilize o comando /ajuda.");
@@ -94,13 +94,13 @@ public class Main {
                 }
                 else{
                     if(update.message().text().equals("/cancelar")){ //Comando para sair de dentro de uma operação
-                        mensagens.add("A operação foi cancelada");
+                        mensagens.add("A operação foi cancelada.");
                         operacaoAtual.reset(); //O controlador é resetado para evitar conflito em reuso
                         operacaoAtual = null; //Removendo a operação da variavel para  permitir inicio de outra operação
                     }
                     else{
                         if(update.message().text().charAt(0) == '/'){ //Mensagem quando o usuario tentar iniciar uma operação quando já estiver dentro de uma outra operação
-                            mensagens.add("Para escolher outra operação é necessario que a operação atual seja cancelada através do comando /cancelar");
+                            mensagens.add("Para escolher outra operação, é necessário que a operação atual seja cancelada através do comando /cancelar.");
                         }
                         else{
                             mensagens = operacaoAtual.chat(update.message().text()); //Local onde ocorre a troca de mensagens com o controlador

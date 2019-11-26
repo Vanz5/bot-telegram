@@ -22,22 +22,22 @@ public class ControladorMovimentarBem extends Controlador {
         List<String> mensagem = new ArrayList<String>();
         switch (getPasso()) {
             case 1:
-                mensagem.add("Qual é o código do bem que vai ser movido?");
+                mensagem.add("Qual é o código do bem a ser movido?");
                 incrementarPasso();
                 break;
             case 2:
                 Bem encontrado = aux.buscarBemCodigo(bens, mensagemRecebida);
                 if (encontrado == null) {
-                    mensagem.add("O codigo informado não está sendo utilizado no momento, informe um código diferente");
+                    mensagem.add("O código informado não está sendo utilizado no momento, informe um código diferente.");
 
                 } else {
-                    mensagem.add("O codigo informado está sendo utilizado para o bem:\n" + encontrado.toString());
+                    mensagem.add("O código informado está sendo utilizado para o bem:\n" + encontrado.toString());
                     bem = encontrado;
                     incrementarPasso();
                     break;
                 }
             case 3:
-                mensagem.add("Informe a localização para qual o bem deve ser movido\nAbaixo estão todas localizações cadastradas");
+                mensagem.add("Informe a localização para qual o bem deve ser movido.\nAbaixo estão todas localizações cadastradas.");
                 List<String> nomesLocalizacoes = aux.ImprimirNomeLocalizacoes(localizacoes);
                 for(String x : nomesLocalizacoes){
                     mensagem.add(x);
@@ -47,7 +47,7 @@ public class ControladorMovimentarBem extends Controlador {
             case 4:
                 Localizacao localizacao = aux.buscaLocalizacao(localizacoes,mensagemRecebida);
                 if (localizacao == null){
-                    mensagem.add("A localização informada não foi encontrada no sistema, para cadastrar uma localização " +
+                    mensagem.add("A localização informada não foi encontrada no sistema, para cadastrar uma localização, " +
                             "primeiro insira '/cancelar' para sair desta operação e '/addlocalizacao' para iniciar o " +
                             "cadastro da localização.");
                 }
@@ -83,11 +83,11 @@ public class ControladorMovimentarBem extends Controlador {
                     incrementarPasso();
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
-                    mensagem.add("Operação cancelada");
+                    mensagem.add("Operação cancelada.");
                     incrementarPasso();
                 }
                 else{
-                    mensagem.add("Resposta inválida");
+                    mensagem.add("Resposta inválida.");
                 }
                 break;
         }
@@ -96,7 +96,7 @@ public class ControladorMovimentarBem extends Controlador {
 
     @Override
     protected String finalizarOperacao() {
-        String mensagem = "Confirme se os dados abaixo estão certos: \nCódigo: "+ bem.getCodigo() +"\nNome: " + bem.getNome() +
+        String mensagem = "Confirme se os dados abaixo estão corretos: \nCódigo: "+ bem.getCodigo() +"\nNome: " + bem.getNome() +
                 "\nDescrição: " + bem.getDescricao() +"\nLocalização: " + bem.getLocalizacao().getNome() + "\nCategoria: " + bem.getCategoria().getNome() +
                 "\n\nPosso salvar esses dados? (s/n)";
         return mensagem;

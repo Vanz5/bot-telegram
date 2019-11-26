@@ -21,7 +21,7 @@ public class ControladorCadastroCategoria extends Controlador {
         List<String> mensagem = new ArrayList<String>();
         switch (getPasso()){
             case 1:
-                mensagem.add("Qual é o código da categoria que vai ser cadastrada?");
+                mensagem.add("Qual é o código da categoria a ser cadastrada?");
                 incrementarPasso();
                 break;
             case 2:
@@ -34,10 +34,10 @@ public class ControladorCadastroCategoria extends Controlador {
                     break;
                 }
                 else{
-                    mensagem.add("O codigo informado já está sendo utilizado para a categoria \n"+ encontrada.toString()+"\n Informe um código diferente");
+                    mensagem.add("O código informado já está sendo utilizado para a categoria: \n"+ encontrada.toString()+"\n Informe um código diferente.");
                 }
             case 3:
-                mensagem.add("Qual é o nome da categoria que vai ser cadastrada?");
+                mensagem.add("Qual é o nome da categoria a ser cadastrada?");
                 incrementarPasso();
                 break;
             case 4:
@@ -71,15 +71,15 @@ public class ControladorCadastroCategoria extends Controlador {
                     break;
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
-                    mensagem.add("Operação cancelada");
+                    mensagem.add("Operação cancelada.");
                     incrementarPasso();
                     break;
                 }
                 else{
-                    mensagem.add("Resposta inválida");
+                    mensagem.add("Resposta inválida.");
                 }
             default:
-                mensagem.add("Passo desconhecido, saindo da operação");
+                mensagem.add("Passo desconhecido, saindo da operação.");
                 break;
         }
         return mensagem;
@@ -87,7 +87,7 @@ public class ControladorCadastroCategoria extends Controlador {
 
     @Override
     protected String finalizarOperacao() {
-        String mensagem = "Confirme se os dados abaixo estão certos: \nCódigo: "+ categoria.getCodigo() +"\nNome: " + categoria.getNome() +
+        String mensagem = "Confirme se os dados abaixo estão corretos: \nCódigo: "+ categoria.getCodigo() +"\nNome: " + categoria.getNome() +
                 "\nDescrição: " + categoria.getDescricao() +"\n\nPosso salvar esses dados? (s/n)";
         return mensagem;
     }

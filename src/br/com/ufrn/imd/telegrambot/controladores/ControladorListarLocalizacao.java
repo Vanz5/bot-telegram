@@ -23,7 +23,7 @@ public class ControladorListarLocalizacao extends Controlador {
         switch (getPasso()){
             case 1:
                 if(localizacoes.isEmpty()){ //Checa se existem localizacoes cadastradas
-                    mensagem.add("Não existem localizações cadastradas, insira '/cancelar' para sair dessa operação");
+                    mensagem.add("Não existem localizações cadastradas, insira '/cancelar' para sair desta operação.");
                 }
                 else { //Mostra no chat todas as localizações cadastradas em 'localizacoes.txt'
                     mensagem.add("Localizações cadastradas:\n");
@@ -33,7 +33,7 @@ public class ControladorListarLocalizacao extends Controlador {
                 }
                 break;
             default:
-                mensagem.add("Passo desconhecido, saindo da operação");
+                mensagem.add("Passo desconhecido, saindo da operação.");
                 break;
         }
         return mensagem;
@@ -41,7 +41,7 @@ public class ControladorListarLocalizacao extends Controlador {
 
     @Override
     protected String finalizarOperacao() {
-        return "Fim da lista";
+        return "Fim da lista.";
     }
 
     @Override

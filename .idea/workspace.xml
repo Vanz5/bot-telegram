@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78ab3f7a-9a56-4aa7-9309-37770cf8d99a" name="Default Changelist" comment="">
+    <list default="true" id="cd7cd9c8-5660-4748-a5d7-9aabddd6e020" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorApagarBem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorApagarBem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorApagarCategoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorApagarCategoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorApagarLocalizacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorApagarLocalizacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorBuscarBemCodigo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorBuscarBemCodigo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorBuscarBemDescricao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorBuscarBemDescricao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorBuscarBemNome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorBuscarBemNome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorCadastroBem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorCadastroBem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorCadastroCategoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorCadastroCategoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorCadastroLocalizacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorCadastroLocalizacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorGerarRelatorioArquivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorGerarRelatorioArquivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorGerarRelatorioChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorGerarRelatorioChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorListarBem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorListarBem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorListarCategoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorListarCategoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorListarLocalizacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorListarLocalizacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorMovimentarBem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/controladores/ControladorMovimentarBem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Bem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Bem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Categoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/ufrn/imd/telegrambot/util/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1U4PTetssKbpKAksedcbEwBBZA8" />
+  <component name="ProjectId" id="1U9iVM9Wg4jXIuIX0D5pm92gyOE" />
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -27,36 +45,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="br.com.ufrn.imd.telegrambot.util.Main" />
-      <module name="BotPatrimonioTelegram" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.ufrn.imd.telegrambot.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="78ab3f7a-9a56-4aa7-9309-37770cf8d99a" name="Default Changelist" comment="" />
-      <created>1574612903970</created>
+      <changelist id="cd7cd9c8-5660-4748-a5d7-9aabddd6e020" name="Default Changelist" comment="" />
+      <created>1574775234347</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1574612903970</updated>
+      <updated>1574775234347</updated>
     </task>
     <servers />
   </component>
@@ -65,9 +63,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>

@@ -49,9 +49,9 @@ public class ControladorGerarRelatorioArquivo extends Controlador {
                     file.write(x.toString()+"\n------\n");
                 }
 
-                file.write("Relatório finalizado");
+                file.write("Relatório finalizado.");
                 file.close();
-                mensagem.add("O relatorio foi gerado no arquivo: 'relatorio"+ dtfArquivo.format(data) + ".txt'");
+                mensagem.add("O relatório foi gerado no arquivo: 'relatorio"+ dtfArquivo.format(data) + ".txt'");
                 incrementarPasso();
                 break;
 

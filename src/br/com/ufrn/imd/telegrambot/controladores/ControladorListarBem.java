@@ -23,7 +23,7 @@ public class ControladorListarBem extends Controlador {
         List<String> mensagem = new ArrayList<String>();
         switch (getPasso()){
             case 1:
-                mensagem.add("De qual das localizações abaixos eu devo listar os bens?");
+                mensagem.add("De qual das localizações abaixo eu devo listar os bens?");
                 List<String> nomesLocalizacoes = aux.ImprimirNomeLocalizacoes(localizacoes);
                 for(String x : nomesLocalizacoes){ //Imprime no chat o nome das localizações cadastradas
                     mensagem.add(x);
@@ -34,7 +34,7 @@ public class ControladorListarBem extends Controlador {
                 String local = mensagemRecebida;
                 Localizacao localizacao = aux.buscaLocalizacao(localizacoes,local); //Procurar localização inserida nas localizações cadastradas
                 if (localizacao == null){
-                    mensagem.add("A localização informada não foi encontrada no sistema, para cadastrar uma localização " +
+                    mensagem.add("A localização informada não foi encontrada no sistema, para cadastrar uma localização, " +
                             "primeiro insira '/cancelar' para sair desta operação e '/addlocalizacao' para iniciar o " +
                             "cadastro da localização.");
                 }
@@ -42,7 +42,7 @@ public class ControladorListarBem extends Controlador {
                     List<Bem> encontrados = aux.buscarBemLocalizacao(bens,local); //Gera uma lista com os bens da localização selecionada
 
                     if(encontrados.isEmpty()){ //Quando a lista não possui nenhum bem
-                        mensagem.add("Não existem nenhum bem nesta localização, insira outra localização ou '/cancelar' para sair dessa operação");
+                        mensagem.add("Não existe nenhum bem nesta localização, insira outra localização ou '/cancelar' para sair desta operação.");
                     }
                     else{
                         mensagem.add("Bens encontrados em "+ localizacao.getNome() + ":");
@@ -55,7 +55,7 @@ public class ControladorListarBem extends Controlador {
                     break;
                 }
             default:
-                mensagem.add("Passo desconhecido, saindo da operação");
+                mensagem.add("Passo desconhecido, saindo da operação.");
                 break;
         }
         return mensagem;
@@ -63,7 +63,7 @@ public class ControladorListarBem extends Controlador {
 
     @Override
     protected String finalizarOperacao() {
-        return "Fim da lista";
+        return "Fim da lista.";
     }
 
     @Override

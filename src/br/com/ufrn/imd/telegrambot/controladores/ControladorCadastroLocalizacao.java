@@ -19,7 +19,7 @@ public class ControladorCadastroLocalizacao extends Controlador {
         List<String> mensagem = new ArrayList<String>();
         switch (getPasso()){
             case 1: //Enviando mensagem para o chat do telegram
-                mensagem.add("Qual é o nome da localização que vai ser cadastrada?");
+                mensagem.add("Qual é o nome da localização a ser cadastrada?");
                 incrementarPasso();
                 break;
             case 2: //Recebendo o nome da localização
@@ -52,11 +52,11 @@ public class ControladorCadastroLocalizacao extends Controlador {
                     incrementarPasso();
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
-                    mensagem.add("Operação cancelada");
+                    mensagem.add("Operação cancelada.");
                     incrementarPasso();
                 }
                 else{
-                    mensagem.add("Resposta inválida");
+                    mensagem.add("Resposta inválida.");
                 }
                 break;
             default:
@@ -68,7 +68,7 @@ public class ControladorCadastroLocalizacao extends Controlador {
 
     @Override
     protected String finalizarOperacao() {
-        String mensagem = "Confirme se os dados abaixo estão certos: \nNome: " + localizacao.getNome() + "\nDescrição: " + localizacao.getDescricao() +"\n\nPosso salvar esses dados? (s/n)";
+        String mensagem = "Confirme se os dados abaixo estão corretos: \nNome: " + localizacao.getNome() + "\nDescrição: " + localizacao.getDescricao() +"\n\nPosso salvar esses dados? (s/n)";
         return mensagem;
     }
 

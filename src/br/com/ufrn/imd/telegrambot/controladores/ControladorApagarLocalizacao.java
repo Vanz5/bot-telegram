@@ -22,7 +22,7 @@ public class ControladorApagarLocalizacao extends Controlador{
         List<String> mensagem = new ArrayList<String>();
         switch (getPasso()){
             case 1:
-                mensagem.add("Qual é o nome da localização que vai ser excluida?\nAbaixo estão todas localizações cadastradas");
+                mensagem.add("Qual é o nome da localização a ser excluída?\nAbaixo estão todas localizações cadastradas.");
                 List<String> nomesLocalizacoes = aux.ImprimirNomeLocalizacoes(localizacoes); //Cria uma lista com os nomes das localizações presentes em 'localizacao.txt'
                 for(String x : nomesLocalizacoes){
                     mensagem.add(x);
@@ -32,13 +32,13 @@ public class ControladorApagarLocalizacao extends Controlador{
             case 2:
                 localizacao = aux.buscaLocalizacao(localizacoes,mensagemRecebida);
                 if (localizacao == null){
-                    mensagem.add("A localização informada não foi encontrada no sistema");
+                    mensagem.add("A localização informada não foi encontrada no sistema.");
                 }
                 else {
                     for(Bem x : bens){
                         if(x.getLocalizacao().getNome().equalsIgnoreCase(localizacao.getNome())){
                             mensagem.add("A localização inserida ainda tem bens associados, antes de apagar uma localização" +
-                                    " é preciso remover ou movimentar todos os seus bens");
+                                    " é necessário remover ou movimentar todos os seus bens.");
                             //TODO - tratar situação em que mesmo recebendo essa msg o usuario continua no fluxo do controlador normalmente
                             break;
                         }
@@ -71,15 +71,15 @@ public class ControladorApagarLocalizacao extends Controlador{
                     incrementarPasso();
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
-                    mensagem.add("Operação cancelada");
+                    mensagem.add("Operação cancelada.");
                     incrementarPasso();
                 }
                 else{
-                    mensagem.add("Resposta inválida");
+                    mensagem.add("Resposta inválida.");
                 }
                 break;
             default:
-                mensagem.add("Passo desconhecido");
+                mensagem.add("Passo desconhecido.");
                 break;
         }
         return mensagem;
@@ -88,7 +88,7 @@ public class ControladorApagarLocalizacao extends Controlador{
     @Override
     protected String finalizarOperacao() {
         String mensagem = "A localização que você deseja apagar é:\nNome: " + localizacao.getNome() +
-                "\nDescrição: " + localizacao.getDescricao() +"\nPosso Apagar a localização? (s/n)";
+                "\nDescrição: " + localizacao.getDescricao() +"\nPosso apagar esta localização? (s/n)";
         return mensagem;
     }
 

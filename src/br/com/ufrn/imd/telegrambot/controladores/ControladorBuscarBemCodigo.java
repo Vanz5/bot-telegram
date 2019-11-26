@@ -19,7 +19,7 @@ public class ControladorBuscarBemCodigo extends Controlador {
 
         switch (getPasso()){
             case 1:
-                mensagem.add("Informe o código do bem que você está procurando");
+                mensagem.add("Informe o código do bem que você está procurando.");
                 incrementarPasso();
                 break;
             case 2:
@@ -27,14 +27,14 @@ public class ControladorBuscarBemCodigo extends Controlador {
                 Bem procurado = aux.buscarBemCodigo(bens,codigo);
 
                 if(procurado == null){ // Caso o código não for encontrado
-                    mensagem.add("Não foi possivel encontrar o código inserido.\nTente novamente ou escreva '/cancelar' para finalizar essa operação");
+                    mensagem.add("Não foi possível encontrar o código inserido.\nTente novamente ou escreva '/cancelar' para finalizar essa operação.");
                     break;
                 }
                 mensagem.add(procurado.toString()); //Imprime no chat o bem com o código inserido
                 incrementarPasso();
                 break;
             default:
-                mensagem.add("Passo desconhecido, saindo da operação");
+                mensagem.add("Passo desconhecido, saindo da operação.");
                 break;
         }
         return mensagem;

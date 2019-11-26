@@ -19,7 +19,7 @@ public class ControladorBuscarBemDescricao extends Controlador {
 
         switch (getPasso()){
             case 1:
-                mensagem.add("Informe a descrição do bem que você está procurando");
+                mensagem.add("Informe a descrição do bem que você está procurando.");
                 incrementarPasso();
                 break;
             case 2:
@@ -27,14 +27,14 @@ public class ControladorBuscarBemDescricao extends Controlador {
                 List<Bem> procurados = aux.buscaBemDescricao(bens,descricao);
 
                 if(procurados == null){
-                    mensagem.add("Não foi possivel encontrar a descrição inserida.\nTente novamente ou escreva '/cancelar' para finalizar essa opração");
+                    mensagem.add("Não foi possível encontrar a descrição inserida.\nTente novamente ou escreva '/cancelar' para finalizar essa operação.");
                     break;
                 }
                 mensagem.add(procurados.toString());
                 incrementarPasso();
                 break;
             default:
-                mensagem.add("Passo desconhecido, saindo da operação");
+                mensagem.add("Passo desconhecido, saindo da operação.");
                 break;
         }
         return mensagem;

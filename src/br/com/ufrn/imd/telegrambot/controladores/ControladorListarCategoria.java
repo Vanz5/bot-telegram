@@ -23,7 +23,7 @@ public class ControladorListarCategoria extends Controlador {
         switch (getPasso()){
             case 1:
                 if(categorias.isEmpty()){
-                    mensagem.add("Não existem categorias cadastradas, insira '/cancelar' para sair dessa operação");
+                    mensagem.add("Não existem categorias cadastradas, insira '/cancelar' para sair desta operação.");
                 }
                 else {
                     mensagem.add("Categorias cadastradas:\n");
@@ -33,7 +33,7 @@ public class ControladorListarCategoria extends Controlador {
                 }
                 break;
             default:
-                mensagem.add("Passo desconhecido, saindo da operação");
+                mensagem.add("Passo desconhecido, saindo da operação.");
                 break;
         }
         return mensagem;
@@ -41,7 +41,7 @@ public class ControladorListarCategoria extends Controlador {
 
     @Override
     protected String finalizarOperacao() {
-        return "Fim da lista";
+        return "Fim da lista.";
     }
 
     @Override

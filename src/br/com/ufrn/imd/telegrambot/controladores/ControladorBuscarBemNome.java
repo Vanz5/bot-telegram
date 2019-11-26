@@ -19,7 +19,7 @@ public class ControladorBuscarBemNome extends Controlador {
 
         switch (getPasso()){
             case 1:
-                mensagem.add("Informe o nome do bem que você está procurando");
+                mensagem.add("Informe o nome do bem que você está procurando.");
                 incrementarPasso();
                 break;
             case 2:
@@ -27,7 +27,7 @@ public class ControladorBuscarBemNome extends Controlador {
                 List<Bem> procurados = aux.buscarBemNome(bens,nome);
 
                 if(procurados == null){
-                    mensagem.add("Não foi possivel encontrar o nome inserido.\nTente novamente ou escreva '/cancelar' para finalizar essa operação");
+                    mensagem.add("Não foi possível encontrar o nome inserido.\nTente novamente ou escreva '/cancelar' para finalizar essa operação.");
                     break;
                 }
                 mensagem.add(procurados.toString());

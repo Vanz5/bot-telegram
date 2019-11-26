@@ -20,17 +20,17 @@ public class ControladorApagarBem extends Controlador {
         List<String> mensagem = new ArrayList<String>();
         switch (getPasso()){
             case 1:
-                mensagem.add("Qual é o código do bem que vai ser excluido?");
+                mensagem.add("Qual é o código do bem a ser excluído?");
                 incrementarPasso();
                 break;
             case 2:
                 Bem encontrado = aux.buscarBemCodigo(bens,mensagemRecebida);
                 if(encontrado == null){
-                    mensagem.add("O codigo informado não está sendo utilizado no momento, informe um código diferente");
+                    mensagem.add("O código informado não está sendo utilizado no momento, informe um código diferente.");
 
                 }
                 else{
-                    mensagem.add("O codigo informado está sendo utilizado para o bem:\n"+ encontrado.toString());
+                    mensagem.add("O código informado está sendo utilizado para o bem:\n"+ encontrado.toString());
                     bem = encontrado;
                     incrementarPasso();
                     break;
@@ -61,15 +61,15 @@ public class ControladorApagarBem extends Controlador {
                     incrementarPasso();
                 }
                 else if(mensagemRecebida.toLowerCase().equals("n")){
-                    mensagem.add("Operação cancelada");
+                    mensagem.add("Operação cancelada.");
                     incrementarPasso();
                 }
                 else{
-                    mensagem.add("Resposta inválida");
+                    mensagem.add("Resposta inválida.");
                 }
                 break;
             default:
-                mensagem.add("Passo desconhecido");
+                mensagem.add("Passo desconhecido.");
                 break;
         }
         return mensagem;
@@ -77,7 +77,7 @@ public class ControladorApagarBem extends Controlador {
 
     @Override
     protected String finalizarOperacao() {
-        String mensagem = "Posso Apagar o bem? (s/n)";
+        String mensagem = "Posso apagar este bem? (s/n)";
         return mensagem;
     }
 
