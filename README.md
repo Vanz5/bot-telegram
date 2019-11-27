@@ -1,8 +1,8 @@
 # Bot Patrimônio Telegram
-  > Projeto de sistema de patrimônio que tem a função de cadastrar os bens de uma determinada empresa e mantê-los atualizados quanto a sua descrição, localização e número de registro
+  > Projeto de sistema de patrimônio que tem a função de cadastrar os bens de uma determinada empresa e mantê-los atualizados quanto a sua descrição, localização e número de registro.
 
 # Compilação:
-  > Para executar o programa é aconselhado importar o projeto com a IDE intelliJ idea, lembrando q é necessario conferir que foram importadas as bibliotecas presentes na pasta lib, caso não estejam presentes basta clicar com botão direito do mouse e clicar na opção ADD library no menu.Feito isso basta executar o main e iniciar uma chat com o usuário: 'patrimoniolp2_bot' no telegram.
+  > Para executar o programa é aconselhado importar o projeto com a IDE intelliJ idea, lembrando que é necessario conferir se foram importadas as bibliotecas presentes na pasta `lib`. Caso não estejam presentes, basta clicar com botão direito do mouse  para aparecer o menu e clicar na opção `ADD library`. Feito isso, basta executar o `main` e iniciar uma _chat_ com o usuário `patrimoniolp2_bot` no Telegram.
   
 ## Colaboradores
 <table>
